@@ -133,13 +133,23 @@ int pm_data_free() {
 
 void pm_data_loop() {
     time_t timestamp = time(0);
+    
+    log("###Entered pm_data_loop");
+   //log_error("###Entered pm_data_loop");
+
     if(timestamp == -1) {
         return;
     }
-
+  // log("##### %s", pm_data_info.vendor);
     if(!(pm_data_info.vendor)) {
+        log("Returning from pm_data_loop vendor error ");
+        log_error("Returning from pm_data_loop vendor error ");
         return;
     }
+
+    log("Calling if pm_data_loop pm_data_accumulator_len %d %ld %ld", pm_data_accumulator_len, 
+                                               timestamp / pm_data_feed_log_period, pm_data_start_time / pm_data_feed_log_period);
+
 
     if((pm_data_accumulator_len) && ((timestamp / pm_data_feed_log_period) != (pm_data_start_time / pm_data_feed_log_period))) {
         int rc;
@@ -151,6 +161,9 @@ void pm_data_loop() {
         int loadAvgAccum = 0;
         long int ue_thp_dl_accum = 0;
         long int ue_thp_ul_accum = 0;
+
+   // log("****pm_data_loop if!!!!");
+   // log_error("****pm_data_loop if!!!!");
 
         for(int i = 0; i < pm_data_accumulator_len; i++) {
             meanActiveUeAccum += pm_data_accumulator[i].numUes;
@@ -230,8 +243,10 @@ void pm_data_loop() {
             .file_size = get_file_size(full_path),
             .notification_id = pm_data_notification_id,
         };
-
+	
+	//log("***send ves message %s %d %d", file_ready.file_location, file_ready.file_size, file_ready.notification_id);
         rc = ves_fileready_execute(&file_ready);
+	log("###Return code: %d\n", rc);
         if(rc != 0) {
             log_error("ves_fileready_execute error");
             goto failure_loop;
@@ -404,6 +419,9 @@ static int pm_data_write(pm_write_data_t *data) {
         log_error("str_replace_inplace() failed");
         goto failure;
     }
+
+    //printf("!!!!In pm_data_write!!!! fie name : %s\n", data->filename);
+   // printf("***** In pm_data_write **** :  %s\n", content);
 
     fprintf(f, "%s", content);
     fclose(f);

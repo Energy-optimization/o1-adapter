@@ -1,0 +1,9 @@
+<ManagedElement xmlns="urn:3gpp:sa5:_3gpp-common-managed-element">
+  <id>ManagedElement=gNB-Eurecom-5GNRBox-00001</id>
+    <DESManagementFunction xmlns="urn:3gpp:sa5:_3gpp-nr-nrm-desmanagementfunction">
+      <attributes>
+        <id>0</id>
+        <desSwitch>enabled</desSwitch>
+      </attributes>
+    </DESManagementFunction>
+</ManagedElement>

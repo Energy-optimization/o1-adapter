@@ -33,7 +33,8 @@ int netconf_init(void) {
     int rc = 0;
 
     //init netconf
-    sr_log_stderr(SR_LL_WRN);
+    //sr_log_stderr(SR_LL_WRN);
+    sr_log_stderr(SR_LL_DBG);
     rc = netconf_session_init();
     if(rc != 0) {
         log_error("netconf_session_init() failed");

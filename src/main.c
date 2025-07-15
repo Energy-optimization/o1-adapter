@@ -157,7 +157,8 @@ int main(int argc, char **argv) {
     log("starting main loop");
     while(1) {
         // check telnet connection
-        if(!telnet_local_is_connected()) {
+	//
+       if(!telnet_local_is_connected()) {
             log("telnet connecting...");
             if(telnet_local_connect(config->telnet.host, config->telnet.port) == 0) {
                 if(telnet_local_wait_for_prompt() != 0) {
@@ -189,10 +190,13 @@ int main(int argc, char **argv) {
             if(oai_data) {
                 oai_data_free(oai_data);
             }
-        } while(0);
+        } while(0); 
 
+        log("Calling alarms_loop");
         alarms_loop();
+        log("Calling pm_data_loop");
         pm_data_loop();
+        log("Calling ves_loop");
         ves_loop();
 
         fflush(stdout);

@@ -2,25 +2,25 @@
     "log-level": 3,
     "software-version": "abcd",
     "network": {
-        "host": "127.0.0.1",
-        "username": "root",
-        "password": "spclab123",
+        "host": "10.33.42.215",
+        "username": "netconf",
+        "password": "netconf!",
         "netconf-port": 1830,
         "sftp-port": 1222
     },
 
     "ves": {
         "template": {
-            "new-alarm": "../docker/config/ves-new-alarm.json",
-            "clear-alarm": "../docker/config/ves-clear-alarm.json",
-            "pnf-registration": "../docker/config/ves-pnf-registration.json",
-            "file-ready": "../docker/config/ves-file-ready.json",
-            "heartbeat": "../docker/config/ves-heartbeat.json",
-            "pm-data": "../docker/config/pmData-measData.xml"
+            "new-alarm": "/adapter/config/ves-new-alarm.json",
+            "clear-alarm": "/adapter/config/ves-clear-alarm.json",
+            "pnf-registration": "/adapter/config/ves-pnf-registration.json",
+            "file-ready": "/adapter/config/ves-file-ready.json",
+            "heartbeat": "/adapter/config/ves-heartbeat.json",
+            "pm-data": "/adapter/config/pmData-measData.xml"
         },
 
         "pnf-registration": true,
-        "heartbeat-interval": 300,
+        "heartbeat-interval": 30,
 
 
         "url": "https://10.33.42.215:9999/eventListener/v7",
@@ -28,7 +28,7 @@
         "password":"password",
 
         "file-expiry": 86400,
-        "pm-data-interval": 300
+        "pm-data-interval": 30
     },
 
     "alarms": {
@@ -39,7 +39,7 @@
     },
 
     "telnet": {
-        "host": "10.33.42.104",
+        "host": "10.33.42.107",
         "port": 9090
     },
 

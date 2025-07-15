@@ -607,7 +607,7 @@ char *telnet_get_o1_stats() {
 		log_error("telnet_write failed");
 		goto failed;
 	}
-
+	printf("*****Response: %s", response);
 	start = strchr(response, '{');
 	stop = strrchr(response, '}');
 	if(stop == 0) {
@@ -694,3 +694,168 @@ failed:
 
 	return 1;
 }
+int telnet_change_rbs(int new_rbs) {
+	char *response = 0;
+	int rc = 0;
+	char buffer[128];
+
+	telnet_lock();
+
+	const char *tokens[] = {"softmodem_gnb> ", 0};
+	rc = telnet_write("o1 stop_modem\n", 10, tokens, &response);
+	if(rc != 0) {
+		log_error("telnet_write failed");
+		goto failed;
+	}
+
+	if(strstr(response, "FAIL")) {
+		log_error("telnet o1 stop_modem failed");
+		goto failed;
+	}
+	free(response);
+	response = 0;
+
+	sleep(1);
+
+	sprintf(buffer, "o1 rbs %d\n", new_rbs);
+	rc = telnet_write(buffer, 15, tokens, &response);
+	if(rc != 0) {
+		log_error("telnet_write failed");
+		goto failed;
+	}
+	
+	if(strstr(response, "FAIL")) {
+		log_error("telnet o1 bwconfig failed");
+		goto failed;
+	}
+	free(response);
+	response = 0;
+
+	sleep(1);
+
+	rc = telnet_write("o1 start_modem\n", 10, tokens, &response);
+	if(rc != 0) {
+		log_error("telnet_write failed");
+		goto failed;
+	}
+
+	if(strstr(response, "FAIL")) {
+		log_error("telnet o1 start_modem failed");
+		goto failed;
+	}
+	free(response);
+	response = 0;
+
+	telnet_unlock();
+	
+	return 0;
+
+failed:
+ 	telnet_unlock();
+	free(response);
+	response = 0;
+
+	return 1;
+}
+int telnet_change_power_state(char* power_state) {
+        printf ("***Enter into powerstate change***\n");
+	char *response = 0;
+	int rc = 0;
+	char buffer[128];
+
+	telnet_lock();
+
+	const char *tokens[] = {"softmodem_gnb> ", 0};
+
+	sprintf(buffer, "o1 power_state %s\n", power_state);
+	rc = telnet_write(buffer, 15, tokens, &response);
+	if(rc != 0) {
+		log_error("telnet_write failed");
+		goto failed;
+	}
+	
+	if(strstr(response, "FAIL")) {
+		log_error("telnet o1 power_state failed");
+		goto failed;
+	}
+	free(response);
+	response = 0;
+
+	sleep(1);
+
+	telnet_unlock();
+	
+	return 0;
+
+failed:
+ 	telnet_unlock();
+	free(response);
+	response = 0;
+
+	return 1;
+}
+/*
+int telnet_change_aps(int new_antenna_ports) {
+	char *response = 0;
+	int rc = 0;
+	char buffer[128];
+
+	telnet_lock();
+
+	const char *tokens[] = {"softmodem_gnb> ", 0};
+	rc = telnet_write("o1 stop_modem\n", 10, tokens, &response);
+	if(rc != 0) {
+		log_error("telnet_write failed");
+		goto failed;
+	}
+
+	if(strstr(response, "FAIL")) {
+		log_error("telnet o1 stop_modem failed");
+		goto failed;
+	}
+	free(response);
+	response = 0;
+
+	sleep(1);
+
+	sprintf(buffer, "o1 antenna_ports %d\n", new_antenna_ports);
+	rc = telnet_write(buffer, 15, tokens, &response);
+	if(rc != 0) {
+		log_error("telnet_write failed");
+		goto failed;
+	}
+	
+	if(strstr(response, "FAIL")) {
+		log_error("telnet o1 antenna_ports failed");
+		goto failed;
+	}
+	free(response);
+	response = 0;
+
+	sleep(1);
+
+	rc = telnet_write("o1 start_modem\n", 10, tokens, &response);
+	if(rc != 0) {
+		log_error("telnet_write failed");
+		goto failed;
+	}
+
+	if(strstr(response, "FAIL")) {
+		log_error("telnet o1 start_modem failed");
+		goto failed;
+	}
+	free(response);
+	response = 0;
+
+	telnet_unlock();
+	
+	return 0;
+
+failed:
+ 	telnet_unlock();
+	free(response);
+	response = 0;
+
+	return 1;
+}
+*/

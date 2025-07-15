@@ -51,6 +51,9 @@ int ves_execute(const char* content, const char *domain, const char *event_type,
     timestampISO3milisec = get_netconf_timestamp_with_miliseconds(0);
     sprintf(timestampMicrosec, "%lu", get_microseconds_since_epoch());
     sprintf(seqId, "%d", ves_common_header.seq_id);
+
+    //log("*******ves_execute.....");
+    //log_error("*******ves_execute.....");
     
     char *post_data = strdup(content);
     if(post_data == 0) {
@@ -119,8 +122,9 @@ int ves_execute(const char* content, const char *domain, const char *event_type,
     int response_code;
     char *response = 0;
     int rc;
-    rc = ves_http_request(ves_config->ves.url, ves_config->ves.username, ves_config->ves.password, "POST", post_data, &response_code, &response);
-    // rc = ves_dummy_http_request(ves_config->ves.url, ves_config->ves.username, ves_config->ves.password, "POST", post_data, &response_code, &response);
+      rc = ves_http_request(ves_config->ves.url, ves_config->ves.username, ves_config->ves.password, "POST", post_data, &response_code, &response);
+//    rc = ves_dummy_http_request(ves_config->ves.url, ves_config->ves.username, ves_config->ves.password, "POST", post_data, &response_code, &response);
+	
     if(rc != 0) {
         log_error("ves_http_request() failed");
         goto failed;
@@ -172,12 +176,15 @@ static int ves_http_request(const char *url, const char *username, const char* p
     if(send_data_good == 0) {
         send_data_good = "";
     }
-
     CURL *curl = curl_easy_init();
+
+
     if(curl == 0) {
         log_error("curl_easy_init() error");
         goto failed;
     }
+
+    //log("****curl_easy_init : %s", send_data);
 
     // set curl options
     struct curl_slist *header = 0;
@@ -186,7 +193,6 @@ static int ves_http_request(const char *url, const char *username, const char* p
         log_error("curl_slist_append() failed");
         goto failed;
     }
-
     header = curl_slist_append(header, "Accept: application/json");
     if(!header) {
         log_error("curl_slist_append() failed");
@@ -303,14 +309,15 @@ static int ves_http_request(const char *url, const char *username, const char* p
             goto failed;
         }
     }
-    
+   
     log("%s-ing cURL to url=\"%s\" with body=\"%s\"... ", method, url, send_data_good);
+//    log("####curl_easy_perform %p", curl)
     res = curl_easy_perform(curl);
     if(res != CURLE_OK) {
-        log_error("curl_easy_perform() failed");
+    log_error("curl_easy_perform() failed");
         goto failed;
     }
-
+    //log("****curl_easy_getinfo**** curl %s CURLINFO_RESPONSE_CODE %d", curl, CURLINFO_RESPONSE_CODE);
     if(response_code) {
         long http_rc;
         res = curl_easy_getinfo(curl, CURLINFO_RESPONSE_CODE, &http_rc);

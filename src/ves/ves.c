@@ -178,7 +178,7 @@ void ves_loop() {
 
             rc = ves_pnf_registration_execute(&data);
             if(rc != 0) {
-                log_error("ves_pnf_registration_execute() failed");
+		    log_error("ves_pnf_registration_execute() failed");
             }
             ves_pnf_registration_sent = true;
         }
@@ -194,8 +194,8 @@ void ves_loop() {
                     log_error("ves_heartbeat_execute() failed");
                 }
             }
-        }
-    }
+        } 
+	}
 }
 
 int ves_pnf_registration_execute(const ves_pnf_registration_data_t *data) {
@@ -282,7 +282,8 @@ int ves_pnf_registration_execute(const ves_pnf_registration_data_t *data) {
             goto failed;
         }
     }
-    
+
+   log("*********ves_execute****%s %s %s %s", content, domain, event_type, priority);
     rc = ves_execute(content, domain, event_type, priority);
     if(rc != 0) {
         log_error("ves_execute() failed");
@@ -303,7 +304,6 @@ int ves_fileready_execute(const ves_file_ready_t *data) {
     char *fileExpiry = 0;
     char *content = 0;
     int rc;
-
     if(data == 0) {
         log_error("data is null");
         goto failed;
@@ -384,7 +384,7 @@ int ves_fileready_execute(const ves_file_ready_t *data) {
         log_error("str_replace_inplace() failed");
         goto failed;
     }
-
+    //log("*****VES_FILE_READY**** %s %s %s %s:", content, domain, event_type, priority); 
     rc = ves_execute(content, domain, event_type, priority);
     if(rc != 0) {
         log_error("ves_execute() failed");
@@ -460,6 +460,7 @@ int ves_alarm_new_execute(const ves_alarm_t *data) {
         goto failed;
     }
     
+    log("ves_execute %s %s %s %s", content, domain, event_type, priority);
     rc = ves_execute(content, domain, event_type, priority);
     if(rc != 0) {
         log_error("ves_execute() failed");

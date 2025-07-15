@@ -32,7 +32,7 @@ o1_stats_template = """{
       "dl": [
         {
           "bwp3gpp:isInitialBwp": true,
-          "bwp3gpp:numberOfRBs": 106,
+          "bwp3gpp:numberOfRBs": @current_rbs@,
           "bwp3gpp:startRB": 0,
           "bwp3gpp:subCarrierSpacing": 30
         }
@@ -40,7 +40,7 @@ o1_stats_template = """{
       "ul": [
         {
           "bwp3gpp:isInitialBwp": true,
-          "bwp3gpp:numberOfRBs": 106,
+          "bwp3gpp:numberOfRBs": @current_rbs@,
           "bwp3gpp:startRB": 0,
           "bwp3gpp:subCarrierSpacing": 30
         }
@@ -94,6 +94,9 @@ running_number = 0
 current_bandwidth = 40
 new_bandwidth = 40
 modem_state = 1
+current_rbs = 51
+new_rbs = 51
+
 
 def execute_command(writer, command):
     global current_bandwidth
@@ -101,6 +104,8 @@ def execute_command(writer, command):
     global modem_state
     global o1_stats_template
     global running_number
+    global current_rbs
+    global new_rbs
 
     print('\'' + command + '\'')
 
@@ -109,7 +114,10 @@ def execute_command(writer, command):
         response = o1_stats_template.replace("@current_bandwidth@", str(current_bandwidth))
         response = response.replace("@running_number@", str(running_number))
         running_number = running_number + 1
-        
+        response = o1_stats_template.replace("@current_rbs@", str(current_rbs))
+        print("***Response_o1 stats***") 
+        response = response.replace("@running_number@", str(running_number))      
+        running_number = running_number + 1        
 
     elif command == 'o1 stop_modem':
       if modem_state == 1:
@@ -123,6 +131,7 @@ def execute_command(writer, command):
       if modem_state == 0:
         response = 'OK'
         current_bandwidth = new_bandwidth
+        current_rbs = new_rbs
         modem_state = 1
         time.sleep(2)
       else:
@@ -139,8 +148,25 @@ def execute_command(writer, command):
             response = "FAILURE: parsing new bw"
       else:
         response = "FAILURE: modem still running"
+
+    elif command.startswith('o1 rbs '):
+      if modem_state == 0:
+        number_string = command[len('o1 rbs '):]
+        try:
+            new_rbs = int(number_string)
+            response = 'OK'
+            time.sleep(1)
+        except ValueError:
+            response = "FAILURE: parsing new bw"
+      else:
+        response = "FAILURE: modem still running"
   
     response = response.replace("\n", "\r\n")
+    #print("############", response)
+
+    #print('o1 stats')
+    print('\'****' + response + '\'')
+
     writer.write("\r\n" + response + "\r\n")
 
 async def shell(reader, writer):
@@ -158,7 +184,7 @@ async def shell(reader, writer):
                 command = command.strip("\r\n ")
 
                 print("Received command: " + command)
-                # writer.write("softmodem_gnb> " + command + "\r\n")
+                #writer.write("softmodem_gnb> " + command + "\r\n")
                 await writer.drain()
                 execute_command(writer, command)
 

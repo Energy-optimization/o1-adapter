@@ -26,9 +26,9 @@
 
 export TERM=xterm-256color
 
-echo "=================================="
-echo "== Starting netopeer2-server"
-netopeer2-server -v3 -t 60
+# echo "=================================="
+# echo "== Starting netopeer2-server"
+# netopeer2-server -v3 -t 60 -d | tee /var/log/netopeer2-server.log
 
 echo "=================================="
 echo "== Starting adapter"

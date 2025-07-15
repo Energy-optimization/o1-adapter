@@ -1,0 +1,846 @@
+[INF] Connection 145 created.
+[INF] Session 1286 (user "root", CID 145) created.
+[INF] Session 1287 (user "root", CID 145) created.
+[INF] No datastore changes to apply.
+[1m[2024-04-16T10:52:47.143/log][common/config.c     : 707][0m Config: 
+[1m[2024-04-16T10:52:47.143/log][common/config.c     : 708][0m - log_level: 3
+[1m[2024-04-16T10:52:47.143/log][common/config.c     : 709][0m - software_version: abcd
+[1m[2024-04-16T10:52:47.143/log][common/config.c     : 710][0m - network.host: 127.0.0.1
+[1m[2024-04-16T10:52:47.143/log][common/config.c     : 711][0m - network.username: root
+[1m[2024-04-16T10:52:47.143/log][common/config.c     : 712][0m - network.password: spclab123
+[1m[2024-04-16T10:52:47.143/log][common/config.c     : 713][0m - network.netconf_port: 1830
+[1m[2024-04-16T10:52:47.143/log][common/config.c     : 714][0m - network.sftp_port: 1222
+[1m[2024-04-16T10:52:47.143/log][common/config.c     : 715][0m - ves.template.new_alarm: ../docker/config/ves-new-alarm.json
+[1m[2024-04-16T10:52:47.143/log][common/config.c     : 716][0m - ves.template.clear_alarm: ../docker/config/ves-clear-alarm.json
+[1m[2024-04-16T10:52:47.143/log][common/config.c     : 717][0m - ves.template.pnf_registration: ../docker/config/ves-pnf-registration.json
+[1m[2024-04-16T10:52:47.143/log][common/config.c     : 718][0m - ves.template.file_ready: ../docker/config/ves-file-ready.json
+[1m[2024-04-16T10:52:47.143/log][common/config.c     : 719][0m - ves.template.heartbeat: ../docker/config/ves-heartbeat.json
+[1m[2024-04-16T10:52:47.143/log][common/config.c     : 720][0m - ves.template.pm_data: ../docker/config/pmData-measData.xml
+[1m[2024-04-16T10:52:47.143/log][common/config.c     : 721][0m - ves.pnf_registration: 1
+[1m[2024-04-16T10:52:47.143/log][common/config.c     : 722][0m - ves.heartbeat_interval: 300
+[1m[2024-04-16T10:52:47.143/log][common/config.c     : 723][0m - ves.url: https://10.33.42.215:9999/eventListener/v7
+[1m[2024-04-16T10:52:47.143/log][common/config.c     : 724][0m - ves.username: user
+[1m[2024-04-16T10:52:47.143/log][common/config.c     : 725][0m - ves.password: password
+[1m[2024-04-16T10:52:47.143/log][common/config.c     : 726][0m - ves.file_expiry: 86400
+[1m[2024-04-16T10:52:47.143/log][common/config.c     : 727][0m - ves.pm_data_interval: 300
+[1m[2024-04-16T10:52:47.143/log][common/config.c     : 728][0m - alarms.internal_connection_lost_timeout: 3
+[1m[2024-04-16T10:52:47.143/log][common/config.c     : 729][0m - alarms.load_downlink_exceeded_warning_threshold: 50
+[1m[2024-04-16T10:52:47.143/log][common/config.c     : 730][0m - alarms.load_downlink_exceeded_warning_timeout: 30
+[1m[2024-04-16T10:52:47.143/log][common/config.c     : 731][0m - telnet.host: 10.33.42.104
+[1m[2024-04-16T10:52:47.143/log][common/config.c     : 732][0m - telnet.port: 9090
+[1m[2024-04-16T10:52:47.143/log][common/config.c     : 733][0m - info.gnb_du_id: 0
+[1m[2024-04-16T10:52:47.143/log][common/config.c     : 734][0m - info.cell_local_id: 0
+[1m[2024-04-16T10:52:47.143/log][common/config.c     : 735][0m - info.node_id: gNB-Eurecom-5GNRBox-00001
+[1m[2024-04-16T10:52:47.143/log][common/config.c     : 736][0m - info.location_name: MountPoint 05, Rack 234-17, Room 234, 2nd Floor, Körnerstraße 7, 10785 Berlin, Germany, Europe, Earth, Solar-System, Universe
+[1m[2024-04-16T10:52:47.143/log][common/config.c     : 737][0m - info.managed_by: ManagementSystem=O-RAN-SC-ONAP-based-SMO
+[1m[2024-04-16T10:52:47.143/log][common/config.c     : 738][0m - info.managed_element_type: NodeB
+[1m[2024-04-16T10:52:47.143/log][common/config.c     : 739][0m - info.model: nr-softmodem
+[1m[2024-04-16T10:52:47.143/log][common/config.c     : 740][0m - info.unit_type: gNB
+[1m[2024-04-16T10:52:47.143/log][main.c              : 102][0m initializing telnet client...
+[1m[2024-04-16T10:52:47.143/log][main.c              : 115][0m initalizing netconf...
+[1m[2024-04-16T10:52:47.205/log][main.c              : 122][0m initalizing netconf_data...
+[1m[2024-04-16T10:52:47.205/log][main.c              : 129][0m initalizing pm_data...
+[1m[2024-04-16T10:52:47.205/log][main.c              : 136][0m initalizing ves...
+[1m[2024-04-16T10:52:47.206/log][main.c              : 143][0m initalizing alarms...
+[1m[2024-04-16T10:52:47.206/log][main.c              : 150][0m initializing oai...
+[1m[2024-04-16T10:52:47.206/log][main.c              : 157][0m starting main loop
+[1m[2024-04-16T10:52:47.206/log][main.c              : 162][0m telnet connecting...
+[1m[2024-04-16T10:52:47.206/log][telnet/telnet.c     : 235][0m telnet thread started [130818311714368]
+[1m[2024-04-16T10:52:47.206/log][alarms/alarms.c     : 193][0m telnet connected
+[1m[2024-04-16T10:52:58.218/log][telnet/telnet.c     : 498][0m telnet_write('o1 stats')
+*****Response: {
+  "o1-config": {
+    "BWP": {
+      "dl": [{
+        "bwp3gpp:isInitialBwp": true,
+        "bwp3gpp:numberOfRBs": 106,
+        "bwp3gpp:startRB": 0,
+        "bwp3gpp:subCarrierSpacing": 30
+      }],
+      "ul": [{
+        "bwp3gpp:isInitialBwp": true,
+        "bwp3gpp:numberOfRBs": 106,
+        "bwp3gpp:startRB": 0,
+        "bwp3gpp:subCarrierSpacing": 30
+      }]
+    },
+    "NRCELLDU": {
+      "nrcelldu3gpp:ssbFrequency": 641280,
+      "nrcelldu3gpp:arfcnDL": 640008,
+      "nrcelldu3gpp:bSChannelBwDL": 40,
+      "nrcelldu3gpp:arfcnUL": 640008,
+      "nrcelldu3gpp:bSChannelBwUL": 40,
+      "nrcelldu3gpp:nRPCI": 0,
+      "nrcelldu3gpp:nRTAC": 1,
+      "nrcelldu3gpp:mcc": "001",
+      "nrcelldu3gpp:mnc": "01",
+      "nrcelldu3gpp:sd": 16777215,
+      "nrcelldu3gpp:sst": 1
+    },
+    "device": {
+      "gnbId": 12345678,
+      "gnbName": "gNB-OAI",
+      "vendor": "OpenAirInterface"
+    }
+  },
+  "O1-Operational": {
+    "frame-type": "tdd",
+    "band-number": 78,
+    "num-ues": 0,
+    "ues": [    ],
+    "load": 0,
+    "ues-thp": [
+    ]
+  }
+}
+OK
+softmodem_gnb> [1m[2024-04-16T10:52:58.219/log][netconf/netconf_data.c:1116][0m [runn] populating /_3gpp-common-managed-element:ManagedElement[id='ManagedElement=gNB-Eurecom-5GNRBox-00001'] with (null).. 
+[1m[2024-04-16T10:52:58.219/log][netconf/netconf_data.c:1116][0m [runn] populating /_3gpp-common-managed-element:ManagedElement[id='ManagedElement=gNB-Eurecom-5GNRBox-00001']/attributes/priorityLabel with 1.. 
+[1m[2024-04-16T10:52:58.219/log][netconf/netconf_data.c:1116][0m [runn] populating /_3gpp-common-managed-element:ManagedElement[id='ManagedElement=gNB-Eurecom-5GNRBox-00001']/_3gpp-nr-nrm-gnbdufunction:GNBDUFunction[id='ManagedElement=gNB-Eurecom-5GNRBox-00001,GNBDUFunction=0'] with (null).. 
+[1m[2024-04-16T10:52:58.219/log][netconf/netconf_data.c:1116][0m [runn] populating /_3gpp-common-managed-element:ManagedElement[id='ManagedElement=gNB-Eurecom-5GNRBox-00001']/_3gpp-nr-nrm-gnbdufunction:GNBDUFunction[id='ManagedElement=gNB-Eurecom-5GNRBox-00001,GNBDUFunction=0']/attributes/priorityLabel with 1.. 
+[1m[2024-04-16T10:52:58.219/log][netconf/netconf_data.c:1116][0m [runn] populating /_3gpp-common-managed-element:ManagedElement[id='ManagedElement=gNB-Eurecom-5GNRBox-00001']/_3gpp-nr-nrm-gnbdufunction:GNBDUFunction[id='ManagedElement=gNB-Eurecom-5GNRBox-00001,GNBDUFunction=0']/attributes/gNBId with 12345678.. 
+[1m[2024-04-16T10:52:58.220/log][netconf/netconf_data.c:1116][0m [runn] populating /_3gpp-common-managed-element:ManagedElement[id='ManagedElement=gNB-Eurecom-5GNRBox-00001']/_3gpp-nr-nrm-gnbdufunction:GNBDUFunction[id='ManagedElement=gNB-Eurecom-5GNRBox-00001,GNBDUFunction=0']/attributes/gNBIdLength with 32.. 
+[1m[2024-04-16T10:52:58.220/log][netconf/netconf_data.c:1116][0m [runn] populating /_3gpp-common-managed-element:ManagedElement[id='ManagedElement=gNB-Eurecom-5GNRBox-00001']/_3gpp-nr-nrm-gnbdufunction:GNBDUFunction[id='ManagedElement=gNB-Eurecom-5GNRBox-00001,GNBDUFunction=0']/attributes/gNBDUId with 0.. 
+[1m[2024-04-16T10:52:58.220/log][netconf/netconf_data.c:1116][0m [runn] populating /_3gpp-common-managed-element:ManagedElement[id='ManagedElement=gNB-Eurecom-5GNRBox-00001']/_3gpp-nr-nrm-gnbdufunction:GNBDUFunction[id='ManagedElement=gNB-Eurecom-5GNRBox-00001,GNBDUFunction=0']/attributes/gNBDUName with gNB-OAI-DU-0.. 
+[1m[2024-04-16T10:52:58.220/log][netconf/netconf_data.c:1116][0m [runn] populating /_3gpp-common-managed-element:ManagedElement[id='ManagedElement=gNB-Eurecom-5GNRBox-00001']/_3gpp-nr-nrm-gnbdufunction:GNBDUFunction[id='ManagedElement=gNB-Eurecom-5GNRBox-00001,GNBDUFunction=0']/_3gpp-nr-nrm-bwp:BWP[id='Downlink'] with (null).. 
+[1m[2024-04-16T10:52:58.220/log][netconf/netconf_data.c:1116][0m [runn] populating /_3gpp-common-managed-element:ManagedElement[id='ManagedElement=gNB-Eurecom-5GNRBox-00001']/_3gpp-nr-nrm-gnbdufunction:GNBDUFunction[id='ManagedElement=gNB-Eurecom-5GNRBox-00001,GNBDUFunction=0']/_3gpp-nr-nrm-bwp:BWP[id='Downlink']/attributes/priorityLabel with 1.. 
+[1m[2024-04-16T10:52:58.220/log][netconf/netconf_data.c:1116][0m [runn] populating /_3gpp-common-managed-element:ManagedElement[id='ManagedElement=gNB-Eurecom-5GNRBox-00001']/_3gpp-nr-nrm-gnbdufunction:GNBDUFunction[id='ManagedElement=gNB-Eurecom-5GNRBox-00001,GNBDUFunction=0']/_3gpp-nr-nrm-bwp:BWP[id='Downlink']/attributes/subCarrierSpacing with 30.. 
+[1m[2024-04-16T10:52:58.221/log][netconf/netconf_data.c:1116][0m [runn] populating /_3gpp-common-managed-element:ManagedElement[id='ManagedElement=gNB-Eurecom-5GNRBox-00001']/_3gpp-nr-nrm-gnbdufunction:GNBDUFunction[id='ManagedElement=gNB-Eurecom-5GNRBox-00001,GNBDUFunction=0']/_3gpp-nr-nrm-bwp:BWP[id='Downlink']/attributes/bwpContext with DL.. 
+[1m[2024-04-16T10:52:58.221/log][netconf/netconf_data.c:1116][0m [runn] populating /_3gpp-common-managed-element:ManagedElement[id='ManagedElement=gNB-Eurecom-5GNRBox-00001']/_3gpp-nr-nrm-gnbdufunction:GNBDUFunction[id='ManagedElement=gNB-Eurecom-5GNRBox-00001,GNBDUFunction=0']/_3gpp-nr-nrm-bwp:BWP[id='Downlink']/attributes/isInitialBwp with INITIAL.. 
+[1m[2024-04-16T10:52:58.221/log][netconf/netconf_data.c:1116][0m [runn] populating /_3gpp-common-managed-element:ManagedElement[id='ManagedElement=gNB-Eurecom-5GNRBox-00001']/_3gpp-nr-nrm-gnbdufunction:GNBDUFunction[id='ManagedElement=gNB-Eurecom-5GNRBox-00001,GNBDUFunction=0']/_3gpp-nr-nrm-bwp:BWP[id='Downlink']/attributes/cyclicPrefix with NORMAL.. 
+[1m[2024-04-16T10:52:58.221/log][netconf/netconf_data.c:1116][0m [runn] populating /_3gpp-common-managed-element:ManagedElement[id='ManagedElement=gNB-Eurecom-5GNRBox-00001']/_3gpp-nr-nrm-gnbdufunction:GNBDUFunction[id='ManagedElement=gNB-Eurecom-5GNRBox-00001,GNBDUFunction=0']/_3gpp-nr-nrm-bwp:BWP[id='Downlink']/attributes/startRB with 0.. 
+[1m[2024-04-16T10:52:58.221/log][netconf/netconf_data.c:1116][0m [runn] populating /_3gpp-common-managed-element:ManagedElement[id='ManagedElement=gNB-Eurecom-5GNRBox-00001']/_3gpp-nr-nrm-gnbdufunction:GNBDUFunction[id='ManagedElement=gNB-Eurecom-5GNRBox-00001,GNBDUFunction=0']/_3gpp-nr-nrm-bwp:BWP[id='Downlink']/attributes/numberOfRBs with 106.. 
+[1m[2024-04-16T10:52:58.221/log][netconf/netconf_data.c:1116][0m [runn] populating /_3gpp-common-managed-element:ManagedElement[id='ManagedElement=gNB-Eurecom-5GNRBox-00001']/_3gpp-nr-nrm-gnbdufunction:GNBDUFunction[id='ManagedElement=gNB-Eurecom-5GNRBox-00001,GNBDUFunction=0']/_3gpp-nr-nrm-bwp:BWP[id='Uplink'] with (null).. 
+[1m[2024-04-16T10:52:58.222/log][netconf/netconf_data.c:1116][0m [runn] populating /_3gpp-common-managed-element:ManagedElement[id='ManagedElement=gNB-Eurecom-5GNRBox-00001']/_3gpp-nr-nrm-gnbdufunction:GNBDUFunction[id='ManagedElement=gNB-Eurecom-5GNRBox-00001,GNBDUFunction=0']/_3gpp-nr-nrm-bwp:BWP[id='Uplink']/attributes/priorityLabel with 1.. 
+[1m[2024-04-16T10:52:58.222/log][netconf/netconf_data.c:1116][0m [runn] populating /_3gpp-common-managed-element:ManagedElement[id='ManagedElement=gNB-Eurecom-5GNRBox-00001']/_3gpp-nr-nrm-gnbdufunction:GNBDUFunction[id='ManagedElement=gNB-Eurecom-5GNRBox-00001,GNBDUFunction=0']/_3gpp-nr-nrm-bwp:BWP[id='Uplink']/attributes/subCarrierSpacing with 30.. 
+[1m[2024-04-16T10:52:58.222/log][netconf/netconf_data.c:1116][0m [runn] populating /_3gpp-common-managed-element:ManagedElement[id='ManagedElement=gNB-Eurecom-5GNRBox-00001']/_3gpp-nr-nrm-gnbdufunction:GNBDUFunction[id='ManagedElement=gNB-Eurecom-5GNRBox-00001,GNBDUFunction=0']/_3gpp-nr-nrm-bwp:BWP[id='Uplink']/attributes/bwpContext with UL.. 
+[1m[2024-04-16T10:52:58.222/log][netconf/netconf_data.c:1116][0m [runn] populating /_3gpp-common-managed-element:ManagedElement[id='ManagedElement=gNB-Eurecom-5GNRBox-00001']/_3gpp-nr-nrm-gnbdufunction:GNBDUFunction[id='ManagedElement=gNB-Eurecom-5GNRBox-00001,GNBDUFunction=0']/_3gpp-nr-nrm-bwp:BWP[id='Uplink']/attributes/isInitialBwp with INITIAL.. 
+[1m[2024-04-16T10:52:58.222/log][netconf/netconf_data.c:1116][0m [runn] populating /_3gpp-common-managed-element:ManagedElement[id='ManagedElement=gNB-Eurecom-5GNRBox-00001']/_3gpp-nr-nrm-gnbdufunction:GNBDUFunction[id='ManagedElement=gNB-Eurecom-5GNRBox-00001,GNBDUFunction=0']/_3gpp-nr-nrm-bwp:BWP[id='Uplink']/attributes/cyclicPrefix with NORMAL.. 
+[1m[2024-04-16T10:52:58.222/log][netconf/netconf_data.c:1116][0m [runn] populating /_3gpp-common-managed-element:ManagedElement[id='ManagedElement=gNB-Eurecom-5GNRBox-00001']/_3gpp-nr-nrm-gnbdufunction:GNBDUFunction[id='ManagedElement=gNB-Eurecom-5GNRBox-00001,GNBDUFunction=0']/_3gpp-nr-nrm-bwp:BWP[id='Uplink']/attributes/startRB with 0.. 
+[1m[2024-04-16T10:52:58.223/log][netconf/netconf_data.c:1116][0m [runn] populating /_3gpp-common-managed-element:ManagedElement[id='ManagedElement=gNB-Eurecom-5GNRBox-00001']/_3gpp-nr-nrm-gnbdufunction:GNBDUFunction[id='ManagedElement=gNB-Eurecom-5GNRBox-00001,GNBDUFunction=0']/_3gpp-nr-nrm-bwp:BWP[id='Uplink']/attributes/numberOfRBs with 106.. 
+[1m[2024-04-16T10:52:58.223/log][netconf/netconf_data.c:1116][0m [runn] populating /_3gpp-common-managed-element:ManagedElement[id='ManagedElement=gNB-Eurecom-5GNRBox-00001']/_3gpp-nr-nrm-gnbdufunction:GNBDUFunction[id='ManagedElement=gNB-Eurecom-5GNRBox-00001,GNBDUFunction=0']/_3gpp-nr-nrm-nrcelldu:NRCellDU[id='ManagedElement=gNB-Eurecom-5GNRBox-00001,GNBDUFunction=0,NRCellDu=0'] with (null).. 
+[1m[2024-04-16T10:52:58.223/log][netconf/netconf_data.c:1116][0m [runn] populating /_3gpp-common-managed-element:ManagedElement[id='ManagedElement=gNB-Eurecom-5GNRBox-00001']/_3gpp-nr-nrm-gnbdufunction:GNBDUFunction[id='ManagedElement=gNB-Eurecom-5GNRBox-00001,GNBDUFunction=0']/_3gpp-nr-nrm-nrcelldu:NRCellDU[id='ManagedElement=gNB-Eurecom-5GNRBox-00001,GNBDUFunction=0,NRCellDu=0']/attributes/priorityLabel with 1.. 
+[1m[2024-04-16T10:52:58.223/log][netconf/netconf_data.c:1116][0m [runn] populating /_3gpp-common-managed-element:ManagedElement[id='ManagedElement=gNB-Eurecom-5GNRBox-00001']/_3gpp-nr-nrm-gnbdufunction:GNBDUFunction[id='ManagedElement=gNB-Eurecom-5GNRBox-00001,GNBDUFunction=0']/_3gpp-nr-nrm-nrcelldu:NRCellDU[id='ManagedElement=gNB-Eurecom-5GNRBox-00001,GNBDUFunction=0,NRCellDu=0']/attributes/cellLocalId with 0.. 
+[1m[2024-04-16T10:52:58.223/log][netconf/netconf_data.c:1116][0m [runn] populating /_3gpp-common-managed-element:ManagedElement[id='ManagedElement=gNB-Eurecom-5GNRBox-00001']/_3gpp-nr-nrm-gnbdufunction:GNBDUFunction[id='ManagedElement=gNB-Eurecom-5GNRBox-00001,GNBDUFunction=0']/_3gpp-nr-nrm-nrcelldu:NRCellDU[id='ManagedElement=gNB-Eurecom-5GNRBox-00001,GNBDUFunction=0,NRCellDu=0']/attributes/pLMNInfoList[mcc='001'][mnc='01'][sd='ff:ff:ff'][sst='1'] with (null).. 
+[1m[2024-04-16T10:52:58.224/log][netconf/netconf_data.c:1116][0m [runn] populating /_3gpp-common-managed-element:ManagedElement[id='ManagedElement=gNB-Eurecom-5GNRBox-00001']/_3gpp-nr-nrm-gnbdufunction:GNBDUFunction[id='ManagedElement=gNB-Eurecom-5GNRBox-00001,GNBDUFunction=0']/_3gpp-nr-nrm-nrcelldu:NRCellDU[id='ManagedElement=gNB-Eurecom-5GNRBox-00001,GNBDUFunction=0,NRCellDu=0']/attributes/nPNIdentityList[idx='0'] with (null).. 
+[1m[2024-04-16T10:52:58.224/log][netconf/netconf_data.c:1116][0m [runn] populating /_3gpp-common-managed-element:ManagedElement[id='ManagedElement=gNB-Eurecom-5GNRBox-00001']/_3gpp-nr-nrm-gnbdufunction:GNBDUFunction[id='ManagedElement=gNB-Eurecom-5GNRBox-00001,GNBDUFunction=0']/_3gpp-nr-nrm-nrcelldu:NRCellDU[id='ManagedElement=gNB-Eurecom-5GNRBox-00001,GNBDUFunction=0,NRCellDu=0']/attributes/nPNIdentityList[idx='0']/plmnid[mcc='001'][mnc='01'] with (null).. 
+[1m[2024-04-16T10:52:58.224/log][netconf/netconf_data.c:1116][0m [runn] populating /_3gpp-common-managed-element:ManagedElement[id='ManagedElement=gNB-Eurecom-5GNRBox-00001']/_3gpp-nr-nrm-gnbdufunction:GNBDUFunction[id='ManagedElement=gNB-Eurecom-5GNRBox-00001,GNBDUFunction=0']/_3gpp-nr-nrm-nrcelldu:NRCellDU[id='ManagedElement=gNB-Eurecom-5GNRBox-00001,GNBDUFunction=0,NRCellDu=0']/attributes/nPNIdentityList[idx='0']/cAGIdList with 1.. 
+[1m[2024-04-16T10:52:58.224/log][netconf/netconf_data.c:1116][0m [runn] populating /_3gpp-common-managed-element:ManagedElement[id='ManagedElement=gNB-Eurecom-5GNRBox-00001']/_3gpp-nr-nrm-gnbdufunction:GNBDUFunction[id='ManagedElement=gNB-Eurecom-5GNRBox-00001,GNBDUFunction=0']/_3gpp-nr-nrm-nrcelldu:NRCellDU[id='ManagedElement=gNB-Eurecom-5GNRBox-00001,GNBDUFunction=0,NRCellDu=0']/attributes/nPNIdentityList[idx='0']/nIDList with 1.. 
+[1m[2024-04-16T10:52:58.224/log][netconf/netconf_data.c:1116][0m [runn] populating /_3gpp-common-managed-element:ManagedElement[id='ManagedElement=gNB-Eurecom-5GNRBox-00001']/_3gpp-nr-nrm-gnbdufunction:GNBDUFunction[id='ManagedElement=gNB-Eurecom-5GNRBox-00001,GNBDUFunction=0']/_3gpp-nr-nrm-nrcelldu:NRCellDU[id='ManagedElement=gNB-Eurecom-5GNRBox-00001,GNBDUFunction=0,NRCellDu=0']/attributes/nRPCI with 0.. 
+[1m[2024-04-16T10:52:58.224/log][netconf/netconf_data.c:1116][0m [runn] populating /_3gpp-common-managed-element:ManagedElement[id='ManagedElement=gNB-Eurecom-5GNRBox-00001']/_3gpp-nr-nrm-gnbdufunction:GNBDUFunction[id='ManagedElement=gNB-Eurecom-5GNRBox-00001,GNBDUFunction=0']/_3gpp-nr-nrm-nrcelldu:NRCellDU[id='ManagedElement=gNB-Eurecom-5GNRBox-00001,GNBDUFunction=0,NRCellDu=0']/attributes/arfcnDL with 640008.. 
+[1m[2024-04-16T10:52:58.224/log][netconf/netconf_data.c:1116][0m [runn] populating /_3gpp-common-managed-element:ManagedElement[id='ManagedElement=gNB-Eurecom-5GNRBox-00001']/_3gpp-nr-nrm-gnbdufunction:GNBDUFunction[id='ManagedElement=gNB-Eurecom-5GNRBox-00001,GNBDUFunction=0']/_3gpp-nr-nrm-nrcelldu:NRCellDU[id='ManagedElement=gNB-Eurecom-5GNRBox-00001,GNBDUFunction=0,NRCellDu=0']/attributes/arfcnUL with 640008.. 
+[1m[2024-04-16T10:52:58.224/log][netconf/netconf_data.c:1116][0m [runn] populating /_3gpp-common-managed-element:ManagedElement[id='ManagedElement=gNB-Eurecom-5GNRBox-00001']/_3gpp-nr-nrm-gnbdufunction:GNBDUFunction[id='ManagedElement=gNB-Eurecom-5GNRBox-00001,GNBDUFunction=0']/_3gpp-nr-nrm-nrcelldu:NRCellDU[id='ManagedElement=gNB-Eurecom-5GNRBox-00001,GNBDUFunction=0,NRCellDu=0']/attributes/bSChannelBwDL with 40.. 
+[1m[2024-04-16T10:52:58.224/log][netconf/netconf_data.c:1116][0m [runn] populating /_3gpp-common-managed-element:ManagedElement[id='ManagedElement=gNB-Eurecom-5GNRBox-00001']/_3gpp-nr-nrm-gnbdufunction:GNBDUFunction[id='ManagedElement=gNB-Eurecom-5GNRBox-00001,GNBDUFunction=0']/_3gpp-nr-nrm-nrcelldu:NRCellDU[id='ManagedElement=gNB-Eurecom-5GNRBox-00001,GNBDUFunction=0,NRCellDu=0']/attributes/bSChannelBwUL with 40.. 
+[1m[2024-04-16T10:52:58.224/log][netconf/netconf_data.c:1116][0m [runn] populating /_3gpp-common-managed-element:ManagedElement[id='ManagedElement=gNB-Eurecom-5GNRBox-00001']/_3gpp-nr-nrm-gnbdufunction:GNBDUFunction[id='ManagedElement=gNB-Eurecom-5GNRBox-00001,GNBDUFunction=0']/_3gpp-nr-nrm-nrcelldu:NRCellDU[id='ManagedElement=gNB-Eurecom-5GNRBox-00001,GNBDUFunction=0,NRCellDu=0']/attributes/rimRSMonitoringStartTime with 2023-06-06T00:00:00Z.. 
+[1m[2024-04-16T10:52:58.224/log][netconf/netconf_data.c:1116][0m [runn] populating /_3gpp-common-managed-element:ManagedElement[id='ManagedElement=gNB-Eurecom-5GNRBox-00001']/_3gpp-nr-nrm-gnbdufunction:GNBDUFunction[id='ManagedElement=gNB-Eurecom-5GNRBox-00001,GNBDUFunction=0']/_3gpp-nr-nrm-nrcelldu:NRCellDU[id='ManagedElement=gNB-Eurecom-5GNRBox-00001,GNBDUFunction=0,NRCellDu=0']/attributes/rimRSMonitoringStopTime with 2023-06-06T00:00:00Z.. 
+[1m[2024-04-16T10:52:58.224/log][netconf/netconf_data.c:1116][0m [runn] populating /_3gpp-common-managed-element:ManagedElement[id='ManagedElement=gNB-Eurecom-5GNRBox-00001']/_3gpp-nr-nrm-gnbdufunction:GNBDUFunction[id='ManagedElement=gNB-Eurecom-5GNRBox-00001,GNBDUFunction=0']/_3gpp-nr-nrm-nrcelldu:NRCellDU[id='ManagedElement=gNB-Eurecom-5GNRBox-00001,GNBDUFunction=0,NRCellDu=0']/attributes/rimRSMonitoringWindowDuration with 1.. 
+[1m[2024-04-16T10:52:58.224/log][netconf/netconf_data.c:1116][0m [runn] populating /_3gpp-common-managed-element:ManagedElement[id='ManagedElement=gNB-Eurecom-5GNRBox-00001']/_3gpp-nr-nrm-gnbdufunction:GNBDUFunction[id='ManagedElement=gNB-Eurecom-5GNRBox-00001,GNBDUFunction=0']/_3gpp-nr-nrm-nrcelldu:NRCellDU[id='ManagedElement=gNB-Eurecom-5GNRBox-00001,GNBDUFunction=0,NRCellDu=0']/attributes/rimRSMonitoringWindowStartingOffset with 1.. 
+[1m[2024-04-16T10:52:58.224/log][netconf/netconf_data.c:1116][0m [runn] populating /_3gpp-common-managed-element:ManagedElement[id='ManagedElement=gNB-Eurecom-5GNRBox-00001']/_3gpp-nr-nrm-gnbdufunction:GNBDUFunction[id='ManagedElement=gNB-Eurecom-5GNRBox-00001,GNBDUFunction=0']/_3gpp-nr-nrm-nrcelldu:NRCellDU[id='ManagedElement=gNB-Eurecom-5GNRBox-00001,GNBDUFunction=0,NRCellDu=0']/attributes/rimRSMonitoringWindowPeriodicity with 1.. 
+[1m[2024-04-16T10:52:58.224/log][netconf/netconf_data.c:1116][0m [runn] populating /_3gpp-common-managed-element:ManagedElement[id='ManagedElement=gNB-Eurecom-5GNRBox-00001']/_3gpp-nr-nrm-gnbdufunction:GNBDUFunction[id='ManagedElement=gNB-Eurecom-5GNRBox-00001,GNBDUFunction=0']/_3gpp-nr-nrm-nrcelldu:NRCellDU[id='ManagedElement=gNB-Eurecom-5GNRBox-00001,GNBDUFunction=0,NRCellDu=0']/attributes/rimRSMonitoringOccasionInterval with 1.. 
+[1m[2024-04-16T10:52:58.224/log][netconf/netconf_data.c:1116][0m [runn] populating /_3gpp-common-managed-element:ManagedElement[id='ManagedElement=gNB-Eurecom-5GNRBox-00001']/_3gpp-nr-nrm-gnbdufunction:GNBDUFunction[id='ManagedElement=gNB-Eurecom-5GNRBox-00001,GNBDUFunction=0']/_3gpp-nr-nrm-nrcelldu:NRCellDU[id='ManagedElement=gNB-Eurecom-5GNRBox-00001,GNBDUFunction=0,NRCellDu=0']/attributes/rimRSMonitoringOccasionStartingOffset with 1.. 
+[1m[2024-04-16T10:52:58.224/log][netconf/netconf_data.c:1116][0m [runn] populating /_3gpp-common-managed-element:ManagedElement[id='ManagedElement=gNB-Eurecom-5GNRBox-00001']/_3gpp-nr-nrm-gnbdufunction:GNBDUFunction[id='ManagedElement=gNB-Eurecom-5GNRBox-00001,GNBDUFunction=0']/_3gpp-nr-nrm-nrcelldu:NRCellDU[id='ManagedElement=gNB-Eurecom-5GNRBox-00001,GNBDUFunction=0,NRCellDu=0']/attributes/ssbFrequency with 641280.. 
+[1m[2024-04-16T10:52:58.224/log][netconf/netconf_data.c:1116][0m [runn] populating /_3gpp-common-managed-element:ManagedElement[id='ManagedElement=gNB-Eurecom-5GNRBox-00001']/_3gpp-nr-nrm-gnbdufunction:GNBDUFunction[id='ManagedElement=gNB-Eurecom-5GNRBox-00001,GNBDUFunction=0']/_3gpp-nr-nrm-nrcelldu:NRCellDU[id='ManagedElement=gNB-Eurecom-5GNRBox-00001,GNBDUFunction=0,NRCellDu=0']/attributes/ssbPeriodicity with 5.. 
+[1m[2024-04-16T10:52:58.224/log][netconf/netconf_data.c:1116][0m [runn] populating /_3gpp-common-managed-element:ManagedElement[id='ManagedElement=gNB-Eurecom-5GNRBox-00001']/_3gpp-nr-nrm-gnbdufunction:GNBDUFunction[id='ManagedElement=gNB-Eurecom-5GNRBox-00001,GNBDUFunction=0']/_3gpp-nr-nrm-nrcelldu:NRCellDU[id='ManagedElement=gNB-Eurecom-5GNRBox-00001,GNBDUFunction=0,NRCellDu=0']/attributes/ssbSubCarrierSpacing with 15.. 
+[1m[2024-04-16T10:52:58.224/log][netconf/netconf_data.c:1116][0m [runn] populating /_3gpp-common-managed-element:ManagedElement[id='ManagedElement=gNB-Eurecom-5GNRBox-00001']/_3gpp-nr-nrm-gnbdufunction:GNBDUFunction[id='ManagedElement=gNB-Eurecom-5GNRBox-00001,GNBDUFunction=0']/_3gpp-nr-nrm-nrcelldu:NRCellDU[id='ManagedElement=gNB-Eurecom-5GNRBox-00001,GNBDUFunction=0,NRCellDu=0']/attributes/ssbOffset with 1.. 
+[1m[2024-04-16T10:52:58.224/log][netconf/netconf_data.c:1116][0m [runn] populating /_3gpp-common-managed-element:ManagedElement[id='ManagedElement=gNB-Eurecom-5GNRBox-00001']/_3gpp-nr-nrm-gnbdufunction:GNBDUFunction[id='ManagedElement=gNB-Eurecom-5GNRBox-00001,GNBDUFunction=0']/_3gpp-nr-nrm-nrcelldu:NRCellDU[id='ManagedElement=gNB-Eurecom-5GNRBox-00001,GNBDUFunction=0,NRCellDu=0']/attributes/ssbDuration with 1.. 
+[1m[2024-04-16T10:52:58.224/log][netconf/netconf_data.c:1116][0m [runn] populating /_3gpp-common-managed-element:ManagedElement[id='ManagedElement=gNB-Eurecom-5GNRBox-0[INF] No datastore changes to apply.
+0001']/_3gpp-nr-nrm-gnbdufunction:GNBDUFunction[id='ManagedElement=gNB-Eurecom-5GNRBox-00001,GNBDUFunction=0']/_3gpp-nr-nrm-nrcelldu:NRCellDU[id='ManagedElement=gNB-Eurecom-5GNRBox-00001,GNBDUFunction=0,NRCellDu=0']/attributes/nRSectorCarrierRef with Tuf=Jy,H:u=|.. 
+[1m[2024-04-16T10:52:58.224/log][netconf/netconf_data.c:1116][0m [runn] populating /_3gpp-common-managed-element:ManagedElement[id='ManagedElement=gNB-Eurecom-5GNRBox-00001']/_3gpp-nr-nrm-gnbdufunction:GNBDUFunction[id='ManagedElement=gNB-Eurecom-5GNRBox-00001,GNBDUFunction=0']/_3gpp-nr-nrm-nrcelldu:NRCellDU[id='ManagedElement=gNB-Eurecom-5GNRBox-00001,GNBDUFunction=0,NRCellDu=0']/attributes/victimSetRef with Tuf=Jy,H:u=|.. 
+[1m[2024-04-16T10:52:58.224/log][netconf/netconf_data.c:1116][0m [runn] populating /_3gpp-common-managed-element:ManagedElement[id='ManagedElement=gNB-Eurecom-5GNRBox-00001']/_3gpp-nr-nrm-gnbdufunction:GNBDUFunction[id='ManagedElement=gNB-Eurecom-5GNRBox-00001,GNBDUFunction=0']/_3gpp-nr-nrm-nrcelldu:NRCellDU[id='ManagedElement=gNB-Eurecom-5GNRBox-00001,GNBDUFunction=0,NRCellDu=0']/attributes/aggressorSetRef with Tuf=Jy,H:u=|.. 
+[1m[2024-04-16T10:52:58.224/log][netconf/netconf_data.c:1116][0m [runn] populating /_3gpp-common-managed-element:ManagedElement[id='ManagedElement=gNB-Eurecom-5GNRBox-00001']/_3gpp-common-managed-element:AlarmList[id='ManagedElement=gNB-Eurecom-5GNRBox-00001,AlarmList=1'] with (null).. 
+[1m[2024-04-16T10:52:58.224/log][netconf/netconf_data.c:1116][0m [runn] populating /_3gpp-common-managed-element:ManagedElement[id='ManagedElement=gNB-Eurecom-5GNRBox-00001']/_3gpp-common-managed-element:AlarmList[id='ManagedElement=gNB-Eurecom-5GNRBox-00001,AlarmList=1']/attributes/alarmRecords[alarmId='ManagedElement=gNB-Eurecom-5GNRBox-00001-internalConnectionLoss'] with (null).. 
+[1m[2024-04-16T10:52:58.224/log][netconf/netconf_data.c:1116][0m [runn] populating /_3gpp-common-managed-element:ManagedElement[id='ManagedElement=gNB-Eurecom-5GNRBox-00001']/_3gpp-common-managed-element:AlarmList[id='ManagedElement=gNB-Eurecom-5GNRBox-00001,AlarmList=1']/attributes/alarmRecords[alarmId='ManagedElement=gNB-Eurecom-5GNRBox-00001-internalConnectionLoss']/perceivedSeverity with CLEARED.. 
+[1m[2024-04-16T10:52:58.225/log][netconf/netconf_data.c:1116][0m [runn] populating /_3gpp-common-managed-element:ManagedElement[id='ManagedElement=gNB-Eurecom-5GNRBox-00001']/_3gpp-common-managed-element:AlarmList[id='ManagedElement=gNB-Eurecom-5GNRBox-00001,AlarmList=1']/attributes/alarmRecords[alarmId='ManagedElement=gNB-Eurecom-5GNRBox-00001,GNBDUFunction=0,NRCellDU=0-loadDownlinkExceededWarning'] with (null).. 
+[1m[2024-04-16T10:52:58.225/log][netconf/netconf_data.c:1116][0m [runn] populating /_3gpp-common-managed-element:ManagedElement[id='ManagedElement=gNB-Eurecom-5GNRBox-00001']/_3gpp-common-managed-element:AlarmList[id='ManagedElement=gNB-Eurecom-5GNRBox-00001,AlarmList=1']/attributes/alarmRecords[alarmId='ManagedElement=gNB-Eurecom-5GNRBox-00001,GNBDUFunction=0,NRCellDU=0-loadDownlinkExceededWarning']/perceivedSeverity with CLEARED.. 
+[1m[2024-04-16T10:52:58.225/log][netconf/netconf_data.c:1135][0m [oper] populating /_3gpp-common-managed-element:ManagedElement[id='ManagedElement=gNB-Eurecom-5GNRBox-00001'] with (null).. 
+[1m[2024-04-16T10:52:58.225/log][netconf/netconf_data.c:1135][0m [oper] populating /_3gpp-common-managed-element:ManagedElement[id='ManagedElement=gNB-Eurecom-5GNRBox-00001']/attributes/locationName with MountPoint 05, Rack 234-17, Room 234, 2nd Floor, Körnerstraße 7, 10785 Berlin, Germany, Europe, Earth, Solar-System, Universe.. 
+[1m[2024-04-16T10:52:58.225/log][netconf/netconf_data.c:1135][0m [oper] populating /_3gpp-common-managed-element:ManagedElement[id='ManagedElement=gNB-Eurecom-5GNRBox-00001']/attributes/managedBy with ManagementSystem=O-RAN-SC-ONAP-based-SMO.. 
+[1m[2024-04-16T10:52:58.225/log][netconf/netconf_data.c:1135][0m [oper] populating /_3gpp-common-managed-element:ManagedElement[id='ManagedElement=gNB-Eurecom-5GNRBox-00001']/attributes/managedElementTypeList with NodeB.. 
+[1m[2024-04-16T10:52:58.225/log][netconf/netconf_data.c:1135][0m [oper] populating /_3gpp-common-managed-element:ManagedElement[id='ManagedElement=gNB-Eurecom-5GNRBox-00001']/attributes/vendorName with OpenAirInterface.. 
+[1m[2024-04-16T10:52:58.225/log][netconf/netconf_data.c:1135][0m [oper] populating /_3gpp-common-managed-element:ManagedElement[id='ManagedElement=gNB-Eurecom-5GNRBox-00001']/attributes/swVersion with abcd.. 
+[1m[2024-04-16T10:52:58.225/log][netconf/netconf_data.c:1135][0m [oper] populating /_3gpp-common-managed-element:ManagedElement[id='ManagedElement=gNB-Eurecom-5GNRBox-00001']/attributes/SupportedPerfMetricGroups with (null).. 
+[1m[2024-04-16T10:52:58.225/log][netconf/netconf_data.c:1135][0m [oper] populating /_3gpp-common-managed-element:ManagedElement[id='ManagedElement=gNB-Eurecom-5GNRBox-00001']/attributes/SupportedPerfMetricGroups/performanceMetrics with DRB.UEThpDl.. 
+[1m[2024-04-16T10:52:58.225/log][netconf/netconf_data.c:1135][0m [oper] populating /_3gpp-common-managed-element:ManagedElement[id='ManagedElement=gNB-Eurecom-5GNRBox-00001']/attributes/SupportedPerfMetricGroups/performanceMetrics with DRB.UEThpUl.. 
+[1m[2024-04-16T10:52:58.225/log][netconf/netconf_data.c:1135][0m [oper] populating /_3gpp-common-managed-element:ManagedElement[id='ManagedElement=gNB-Eurecom-5GNRBox-00001']/attributes/SupportedPerfMetricGroups/performanceMetrics with DRB.MeanActiveUeDl.. 
+[1m[2024-04-16T10:52:58.225/log][netconf/netconf_data.c:1135][0m [oper] populating /_3gpp-common-managed-element:ManagedElement[id='ManagedElement=gNB-Eurecom-5GNRBox-00001']/attributes/SupportedPerfMetricGroups/performanceMetrics with DRB.MaxActiveUeDl.. 
+[1m[2024-04-16T10:52:58.225/log][netconf/netconf_data.c:1135][0m [oper] populating /_3gpp-common-managed-element:ManagedElement[id='ManagedElement=gNB-Eurecom-5GNRBox-00001']/attributes/SupportedPerfMetricGroups/performanceMetrics with DRB.MeanActiveUeUl.. 
+[1m[2024-04-16T10:52:58.225/log][netconf/netconf_data.c:1135][0m [oper] populating /_3gpp-common-managed-element:ManagedElement[id='ManagedElement=gNB-Eurecom-5GNRBox-00001']/attributes/SupportedPerfMetricGroups/performanceMetrics with DRB.MaxActiveUeUl.. 
+[1m[2024-04-16T10:52:58.225/log][netconf/netconf_data.c:1135][0m [oper] populating /_3gpp-common-managed-element:ManagedElement[id='ManagedElement=gNB-Eurecom-5GNRBox-00001']/attributes/SupportedPerfMetricGroups/granularityPeriods with 900.. 
+[1m[2024-04-16T10:52:58.225/log][netconf/netconf_data.c:1135][0m [oper] populating /_3gpp-common-managed-element:ManagedElement[id='ManagedElement=gNB-Eurecom-5GNRBox-00001']/attributes/SupportedPerfMetricGroups/reportingMethods with FILE_BASED_LOC_SET_BY_PRODUCER.. 
+[1m[2024-04-16T10:52:58.225/log][netconf/netconf_data.c:1135][0m [oper] populating /_3gpp-common-managed-element:ManagedElement[id='ManagedElement=gNB-Eurecom-5GNRBox-00001']/attributes/SupportedPerfMetricGroups/reportingMethods with FILE_BASED_LOC_SET_BY_CONSUMER.. 
+[1m[2024-04-16T10:52:58.225/log][netconf/netconf_data.c:1135][0m [oper] populating /_3gpp-common-managed-element:ManagedElement[id='ManagedElement=gNB-Eurecom-5GNRBox-00001']/_3gpp-common-managed-element:AlarmList[id='ManagedElement=gNB-Eurecom-5GNRBox-00001,AlarmList=1'] with (null).. 
+[1m[2024-04-16T10:52:58.225/log][netconf/netconf_data.c:1135][0m [oper] populating /_3gpp-common-managed-element:ManagedElement[id='ManagedElement=gNB-Eurecom-5GNRBox-00001']/_3gpp-common-managed-element:AlarmList[id='ManagedElement=gNB-Eurecom-5GNRBox-00001,AlarmList=1']/attributes/alarmRecords[alarmId='ManagedElement=gNB-Eurecom-5GNRBox-00001-internalConnectionLoss'] with (null).. 
+[1m[2024-04-16T10:52:58.225/log][netconf/netconf_data.c:1135][0m [oper] populating /_3gpp-common-managed-element:ManagedElement[id='ManagedElement=gNB-Eurecom-5GNRBox-00001']/_3gpp-common-managed-element:AlarmList[id='ManagedElement=gNB-Eurecom-5GNRBox-00001,AlarmList=1']/attributes/alarmRecords[alarmId='ManagedElement=gNB-Eurecom-5GNRBox-00001-internalConnectionLoss']/objectInstance with ManagedElement=gNB-Eurecom-5GNRBox-00001.. 
+[DBG] #SHM before (adding change sub)
+[DBG] #SHM:
+000000-000008 [     8]: ext structure
+000008-000048 [    40]: rpc subs (1, path "/ietf-netconf:get-config")
+000048-000080 [    32]: rpc sub xpath ("/ietf-netconf:get-config", path "/ietf-netconf:get-config")
+000080-000120 [    40]: rpc subs (1, path "/ietf-netconf:edit-config")
+000120-000152 [    32]: rpc sub xpath ("/ietf-netconf:edit-config", path "/ietf-netconf:edit-config")
+000152-000192 [    40]: rpc subs (1, path "/ietf-netconf:copy-config")
+000192-000224 [    32]: rpc sub xpath ("/ietf-netconf:copy-config", path "/ietf-netconf:copy-config")
+000224-000264 [    40]: rpc subs (1, path "/ietf-netconf:delete-config")
+000264-000296 [    32]: rpc sub xpath ("/ietf-netconf:delete-config", path "/ietf-netconf:delete-config")
+000296-000336 [    40]: rpc subs (1, path "/ietf-netconf:lock")
+000336-000360 [    24]: rpc sub xpath ("/ietf-netconf:lock", path "/ietf-netconf:lock")
+000360-000400 [    40]: rpc subs (1, path "/ietf-netconf:unlock")
+000400-000424 [    24]: rpc sub xpath ("/ietf-netconf:unlock", path "/ietf-netconf:unlock")
+000424-000464 [    40]: rpc subs (1, path "/ietf-netconf:get")
+000464-000488 [    24]: rpc sub xpath ("/ietf-netconf:get", path "/ietf-netconf:get")
+000488-000528 [    40]: rpc subs (1, path "/ietf-netconf:kill-session")
+000528-000560 [    32]: rpc sub xpath ("/ietf-netconf:kill-session", path "/ietf-netconf:kill-session")
+000560-000600 [    40]: rpc subs (1, path "/ietf-netconf:commit")
+000600-000624 [    24]: rpc sub xpath ("/ietf-netconf:commit", path "/ietf-netconf:commit")
+000624-000664 [    40]: rpc subs (1, path "/ietf-netconf:cancel-commit")
+000664-000696 [    32]: rpc sub xpath ("/ietf-netconf:cancel-commit", path "/ietf-netconf:cancel-commit")
+000696-000736 [    40]: rpc subs (1, path "/ietf-netconf:discard-changes")
+000736-000768 [    32]: rpc sub xpath ("/ietf-netconf:discard-changes", path "/ietf-netconf:discard-changes")
+000768-000808 [    40]: rpc subs (1, path "/ietf-netconf:validate")
+000808-000832 [    24]: rpc sub xpath ("/ietf-netconf:validate", path "/ietf-netconf:validate")
+000832-000872 [    40]: rpc subs (1, path "/ietf-netconf-monitoring:get-schema")
+000872-000912 [    40]: rpc sub xpath ("/ietf-netconf-monitoring:get-schema", path "/ietf-netconf-monitoring:get-schema")
+000912-000952 [    40]: rpc subs (1, path "/notifications:create-subscription")
+000952-000992 [    40]: rpc sub xpath ("/notifications:create-subscription", path "/notifications:create-subscription")
+000992-001032 [    40]: rpc subs (1, path "/ietf-netconf-nmda:get-data")
+001032-001064 [    32]: rpc sub xpath ("/ietf-netconf-nmda:get-data", path "/ietf-netconf-nmda:get-data")
+001064-001104 [    40]: rpc subs (1, path "/ietf-netconf-nmda:edit-data")
+001104-001136 [    32]: rpc sub xpath ("/ietf-netconf-nmda:edit-data", path "/ietf-netconf-nmda:edit-data")
+001136-001176 [    40]: rpc subs (1, path "/ietf-subscribed-notifications:establish-subscription")
+001176-001232 [    56]: rpc sub xpath ("/ietf-subscribed-notifications:establish-subscription", path "/ietf-subscribed-notifications:establish-subscription")
+001232-001272 [    40]: rpc subs (1, path "/ietf-subscribed-notifications:modify-subscription")
+001272-001328 [    56]: rpc sub xpath ("/ietf-subscribed-notifications:modify-subscription", path "/ietf-subscribed-notifications:modify-subscription")
+001328-001368 [    40]: rpc subs (1, path "/ietf-subscribed-notifications:delete-subscription")
+001368-001424 [    56]: rpc sub xpath ("/ietf-subscribed-notifications:delete-subscription", path "/ietf-subscribed-notifications:delete-subscription")
+001424-001464 [    40]: rpc subs (1, path "/ietf-subscribed-notifications:kill-subscription")
+001464-001520 [    56]: rpc sub xpath ("/ietf-subscribed-notifications:kill-subscription", path "/ietf-subscribed-notifications:kill-subscription")
+001520-001560 [    40]: rpc subs (1, path "/ietf-yang-push:resync-subscription")
+001560-001600 [    40]: rpc sub xpath ("/ietf-yang-push:resync-subscription", path "/ietf-yang-push:resync-subscription")
+001600-001632 [    32]: oper get subs (1, mod "ietf-netconf-monitoring")
+001632-001672 [    40]: oper get sub xpath ("/ietf-netconf-monitoring:netconf-state", mod "ietf-netconf-monitoring")
+001672-001704 [    32]: oper get xpath subs (1, xpath "/ietf-netconf-monitoring:netconf-state")
+001704-001736 [    32]: oper get subs (1, mod "nc-notifications")
+001736-001768 [    32]: oper get sub xpath ("/nc-notifications:netconf", mod "nc-notifications")
+001768-001800 [    32]: oper get xpath subs (1, xpath "/nc-notifications:netconf")
+001800-001840 [    40]: running change sub xpath ("/ietf-subscribed-notifications:filters", mod "ietf-subscribed-notifications")
+001840-001880 [    40]: running change sub xpath ("/ietf-subscribed-notifications:filters", mod "ietf-subscribed-notifications")
+001880-001912 [    32]: oper get xpath subs (1, xpath "/ietf-subscribed-notifications:subscriptions")
+001912-001952 [    40]: oper get sub xpath ("/ietf-subscribed-notifications:streams", mod "ietf-subscribed-notifications")
+001952-001984 [    32]: oper get xpath subs (1, xpath "/ietf-subscribed-notifications:streams")
+001984-002048 [    64]: oper get subs (2, mod "ietf-subscribed-notifications")
+002048-002096 [    48]: oper get sub xpath ("/ietf-subscribed-notifications:subscriptions", mod "ietf-subscribed-notifications")
+002096-002128 [    32]: oper get subs (1, mod "ietf-netconf-server")
+002128-002136 [     8]: memory hole (size 8)
+002136-002192 [    56]: running change sub xpath ("/ietf-netconf-server:netconf-server/listen/idle-timeout", mod "ietf-netconf-server")
+002192-002248 [    56]: running change sub xpath ("/ietf-netconf-server:netconf-server/listen/idle-timeout", mod "ietf-netconf-server")
+002248-002272 [    24]: running change sub xpath ("/ietf-netconf-acm:nacm", mod "ietf-netconf-acm")
+002272-002328 [    56]: running change sub xpath ("/ietf-netconf-server:netconf-server/listen/endpoint/ssh", mod "ietf-netconf-server")
+002328-002384 [    56]: running change sub xpath ("/ietf-netconf-server:netconf-server/listen/endpoint/ssh", mod "ietf-netconf-server")
+002384-002416 [    32]: oper get xpath subs (1, xpath "/ietf-netconf-server:netconf-server/listen/endpoint/ssh/ssh-server-parameters/client-authentication/users")
+002416-002448 [    32]: oper get subs (1, mod "sysrepo-monitoring")
+002448-002528 [    80]: running change sub xpath ("/ietf-netconf-server:netconf-server/listen/endpoint/ssh/tcp-server-parameters", mod "ietf-netconf-server")
+002528-002584 [    56]: running change sub xpath ("/ietf-netconf-server:netconf-server/listen/endpoint/tls", mod "ietf-netconf-server")
+002584-002664 [    80]: running change sub xpath ("/ietf-netconf-server:netconf-server/listen/endpoint/tls/tcp-server-parameters", mod "ietf-netconf-server")
+002664-002688 [    24]: running change sub xpath ("/ietf-netconf-acm:nacm", mod "ietf-netconf-acm")
+002688-002824 [   136]: running change sub xpath ("/ietf-netconf-server:netconf-server/listen/endpoint/ssh/ssh-server-parameters/server-identity/host-key/public-key/keystore-reference", mod "ietf-netconf-server")
+002824-002944 [   120]: running change sub xpath ("/ietf-netconf-server:netconf-server/listen/endpoint/tls/tls-server-parameters/server-identity/keystore-reference", mod "ietf-netconf-server")
+002944-003008 [    64]: running change sub xpath ("/ietf-netconf-server:netconf-server/call-home/netconf-client", mod "ietf-netconf-server")
+003008-003024 [    16]: memory hole (size 16)
+003024-003160 [   136]: running change sub xpath ("/ietf-netconf-server:netconf-server/listen/endpoint/ssh/ssh-server-parameters/client-authentication/supported-authentication-methods", mod "ietf-netconf-server")
+003160-003240 [    80]: running change sub xpath ("/ietf-netconf-server:netconf-server/call-home/netconf-client/connection-type", mod "ietf-netconf-server")
+003240-003328 [    88]: running change sub xpath ("/ietf-netconf-server:netconf-server/call-home/netconf-client/connection-type/periodic", mod "ietf-netconf-server")
+003328-003408 [    80]: running change sub xpath ("/ietf-netconf-server:netconf-server/call-home/netconf-client/reconnect-strategy", mod "ietf-netconf-server")
+003408-003496 [    88]: running change sub xpath ("/ietf-netconf-server:netconf-server/call-home/netconf-client/endpoints/endpoint/ssh", mod "ietf-netconf-server")
+003496-003520 [    24]: memory hole (size 24)
+003520-003624 [   104]: running change sub xpath ("/ietf-netconf-server:netconf-server/listen/endpoint/tls/tls-server-parameters/client-authentication", mod "ietf-netconf-server")
+003624-003736 [   112]: running change sub xpath ("/ietf-netconf-server:netconf-server/call-home/netconf-client/endpoints/endpoint/ssh/tcp-client-parameters", mod "ietf-netconf-server")
+003736-003904 [   168]: running change sub xpath ("/ietf-netconf-server:netconf-server/call-home/netconf-client/endpoints/endpoint/ssh/ssh-server-parameters/server-identity/host-key/public-key/keystore-reference", mod "ietf-netconf-server")
+003904-003992 [    88]: running change sub xpath ("/ietf-netconf-server:netconf-server/call-home/netconf-client/endpoints/endpoint/tls", mod "ietf-netconf-server")
+003992-004024 [    32]: oper get xpath subs (1, xpath "/sysrepo-monitoring:sysrepo-state/connection[cid='139']/nacm-stats")
+004024-004136 [   112]: running change sub xpath ("/ietf-netconf-server:netconf-server/listen/endpoint/tls/tls-server-parameters/client-authentication/cert-maps", mod "ietf-netconf-server")
+004136-004248 [   112]: running change sub xpath ("/ietf-netconf-server:netconf-server/call-home/netconf-client/endpoints/endpoint/tls/tcp-client-parameters", mod "ietf-netconf-server")
+004248-004392 [   144]: running change sub xpath ("/ietf-netconf-server:netconf-server/call-home/netconf-client/endpoints/endpoint/tls/tls-server-parameters/server-identity/keystore-reference", mod "ietf-netconf-server")
+004392-004520 [   128]: running change sub xpath ("/ietf-netconf-server:netconf-server/call-home/netconf-client/endpoints/endpoint/tls/tls-server-parameters/client-authentication", mod "ietf-netconf-server")
+004520-004664 [   144]: running change sub xpath ("/ietf-netconf-server:netconf-server/call-home/netconf-client/endpoints/endpoint/tls/tls-server-parameters/client-authentication/cert-maps", mod "ietf-netconf-server")
+004664-004704 [    40]: running change sub xpath ("/ietf-keystore:keystore/asymmetric-keys", mod "ietf-keystore")
+004704-004744 [    40]: running change sub xpath ("/ietf-keystore:keystore/asymmetric-keys", mod "ietf-keystore")
+004744-004792 [    48]: running change sub xpath ("/ietf-truststore:truststore/certificates", mod "ietf-truststore")
+004792-004816 [    24]: memory hole (size 24)
+004816-004984 [   168]: running change sub xpath ("/ietf-netconf-server:netconf-server/call-home/netconf-client/endpoints/endpoint/ssh/ssh-server-parameters/client-authentication/supported-authentication-methods", mod "ietf-netconf-server")
+004984-005024 [    40]: running change sub xpath ("/ietf-netconf-acm:nacm/rule-list/rule", mod "ietf-netconf-acm")
+005024-005064 [    40]: running change sub xpath ("/ietf-netconf-acm:nacm/groups/group", mod "ietf-netconf-acm")
+005064-005104 [    40]: running change sub xpath ("/ietf-netconf-acm:nacm/groups/group", mod "ietf-netconf-acm")
+005104-005184 [    80]: running change sub xpath ("/ietf-netconf-server:netconf-server/listen/endpoint/ssh/tcp-server-parameters", mod "ietf-netconf-server")
+005184-005224 [    40]: running change sub xpath ("/ietf-netconf-acm:nacm/rule-list", mod "ietf-netconf-acm")
+005224-005264 [    40]: running change sub xpath ("/ietf-netconf-acm:nacm/rule-list", mod "ietf-netconf-acm")
+005264-005400 [   136]: running change sub xpath ("/ietf-netconf-server:netconf-server/listen/endpoint/ssh/ssh-server-parameters/server-identity/host-key/public-key/keystore-reference", mod "ietf-netconf-server")
+005400-005536 [   136]: running change sub xpath ("/ietf-netconf-server:netconf-server/listen/endpoint/ssh/ssh-server-parameters/client-authentication/supported-authentication-methods", mod "ietf-netconf-server")
+005536-005648 [   112]: oper get sub xpath ("/ietf-netconf-server:netconf-server/listen/endpoint/ssh/ssh-server-parameters/client-authentication/users", mod "ietf-netconf-server")
+005648-005704 [    56]: running change sub xpath ("/ietf-netconf-server:netconf-server/listen/endpoint/tls", mod "ietf-netconf-server")
+005704-005752 [    48]: running change sub xpath ("/ietf-truststore:truststore/certificates", mod "ietf-truststore")
+005752-005760 [     8]: memory hole (size 8)
+005760-005840 [    80]: running change subs (2, mod "ietf-subscribed-notifications")
+005840-005944 [   104]: running change sub xpath ("/ietf-netconf-server:netconf-server/listen/endpoint/tls/tls-server-parameters/client-authentication", mod "ietf-netconf-server")
+005944-006056 [   112]: running change sub xpath ("/ietf-netconf-server:netconf-server/listen/endpoint/tls/tls-server-parameters/client-authentication/cert-maps", mod "ietf-netconf-server")
+006056-006120 [    64]: running change sub xpath ("/ietf-netconf-server:netconf-server/call-home/netconf-client", mod "ietf-netconf-server")
+006120-006200 [    80]: running change sub xpath ("/ietf-netconf-server:netconf-server/call-home/netconf-client/connection-type", mod "ietf-netconf-server")
+006200-006288 [    88]: running change sub xpath ("/ietf-netconf-server:netconf-server/call-home/netconf-client/connection-type/periodic", mod "ietf-netconf-server")
+006288-006368 [    80]: running change sub xpath ("/ietf-netconf-server:netconf-server/call-home/netconf-client/reconnect-strategy", mod "ietf-netconf-server")
+006368-006456 [    88]: running change sub xpath ("/ietf-netconf-server:netconf-server/call-home/netconf-client/endpoints/endpoint/ssh", mod "ietf-netconf-server")
+006456-006568 [   112]: running change sub xpath ("/ietf-netconf-server:netconf-server/call-home/netconf-client/endpoints/endpoint/ssh/tcp-client-parameters", mod "ietf-netconf-server")
+006568-006736 [   168]: running change sub xpath ("/ietf-netconf-server:netconf-server/call-home/netconf-client/endpoints/endpoint/ssh/ssh-server-parameters/server-identity/host-key/public-key/keystore-reference", mod "ietf-netconf-server")
+006736-006904 [   168]: running change sub xpath ("/ietf-netconf-server:netconf-server/call-home/netconf-client/endpoints/endpoint/ssh/ssh-server-parameters/client-authentication/supported-authentication-methods", mod "ietf-netconf-server")
+006904-006992 [    88]: running change sub xpath ("/ietf-netconf-server:netconf-server/call-home/netconf-client/endpoints/endpoint/tls", mod "ietf-netconf-server")
+006992-007032 [    40]: running change sub xpath ("/ietf-netconf-acm:nacm/rule-list/rule", mod "ietf-netconf-acm")
+007032-007040 [     8]: memory hole (size 8)
+007040-007120 [    80]: running change sub xpath ("/ietf-netconf-server:netconf-server/listen/endpoint/tls/tcp-server-parameters", mod "ietf-netconf-server")
+007120-007240 [   120]: running change sub xpath ("/ietf-netconf-server:netconf-server/listen/endpoint/tls/tls-server-parameters/server-identity/keystore-reference", mod "ietf-netconf-server")
+007240-007352 [   112]: running change sub xpath ("/ietf-netconf-server:netconf-server/call-home/netconf-client/endpoints/endpoint/tls/tcp-client-parameters", mod "ietf-netconf-server")
+007352-007496 [   144]: running change sub xpath ("/ietf-netconf-server:netconf-server/call-home/netconf-client/endpoints/endpoint/tls/tls-server-parameters/server-identity/keystore-reference", mod "ietf-netconf-server")
+007496-007624 [   128]: running change sub xpath ("/ietf-netconf-server:netconf-server/call-home/netconf-client/endpoints/endpoint/tls/tls-server-parameters/client-authentication", mod "ietf-netconf-server")
+007624-007768 [   144]: running change sub xpath ("/ietf-netconf-server:netconf-server/call-home/netconf-client/endpoints/endpoint/tls/tls-server-parameters/client-authentication/cert-maps", mod "ietf-netconf-server")
+007768-007776 [     8]: memory hole (size 8)
+007776-007856 [    80]: running change subs (2, mod "ietf-keystore")
+007856-007936 [    80]: running change subs (2, mod "ietf-truststore")
+007936-008008 [    72]: oper get sub xpath ("/sysrepo-monitoring:sysrepo-state/connection[cid='139']/nacm-stats", mod "sysrepo-monitoring")
+008008-008040 [    32]: oper get xpath subs (1, xpath "/ietf-netconf-acm:nacm/denied-data-writes")
+008040-008088 [    48]: oper get sub xpath ("/ietf-netconf-acm:nacm/denied-operations", mod "ietf-netconf-acm")
+008088-008120 [    32]: oper get xpath subs (1, xpath "/ietf-netconf-acm:nacm/denied-operations")
+008120-008152 [    32]: oper get xpath subs (1, xpath "/ietf-netconf-acm:nacm/denied-notifications")
+008152-008216 [    64]: memory hole (size 64)
+008216-008536 [   320]: running change subs (8, mod "ietf-netconf-acm")
+008536-008584 [    48]: oper get sub xpath ("/ietf-netconf-acm:nacm/denied-data-writes", mod "ietf-netconf-acm")
+008584-008680 [    96]: oper get subs (3, mod "ietf-netconf-acm")
+008680-008776 [    96]: running change sub xpath ("/_3gpp-common-managed-element:ManagedElement[id='ManagedElement=gNB-Eurecom-5GNRBox-00001']", mod "_3gpp-common-managed-element")
+008776-008832 [    56]: memory hole (size 56)
+008832-010672 [  1840]: running change subs (46, mod "ietf-netconf-server")
+010672-010720 [    48]: oper get sub xpath ("/ietf-netconf-acm:nacm/denied-notifications", mod "ietf-netconf-acm")
+010720-010800 [    80]: running change subs (2, mod "_3gpp-common-managed-element")
+010800-010896 [    96]: running change sub xpath ("/_3gpp-common-managed-element:ManagedElement[id='ManagedElement=gNB-Eurecom-5GNRBox-00001']", mod "_3gpp-common-managed-element")
+
+[DBG] #SHM after (adding change sub)
+[DBG] #SHM:
+000000-000008 [     8]: ext structure
+000008-000048 [    40]: rpc subs (1, path "/ietf-netconf:get-config")
+000048-000080 [    32]: rpc sub xpath ("/ietf-netconf:get-config", path "/ietf-netconf:get-config")
+000080-000120 [    40]: rpc subs (1, path "/ietf-netconf:edit-config")
+000120-000152 [    32]: rpc sub xpath ("/ietf-netconf:edit-config", path "/ietf-netconf:edit-config")
+000152-000192 [    40]: rpc subs (1, path "/ietf-netconf:copy-config")
+000192-000224 [    32]: rpc sub xpath ("/ietf-netconf:copy-config", path "/ietf-netconf:copy-config")
+000224-000264 [    40]: rpc subs (1, path "/ietf-netconf:delete-config")
+000264-000296 [    32]: rpc sub xpath ("/ietf-netconf:delete-config", path "/ietf-netconf:delete-config")
+000296-000336 [    40]: rpc subs (1, path "/ietf-netconf:lock")
+000336-000360 [    24]: rpc sub xpath ("/ietf-netconf:lock", path "/ietf-netconf:lock")
+000360-000400 [    40]: rpc subs (1, path "/ietf-netconf:unlock")
+000400-000424 [    24]: rpc sub xpath ("/ietf-netconf:unlock", path "/ietf-netconf:unlock")
+000424-000464 [    40]: rpc subs (1, path "/ietf-netconf:get")
+000464-000488 [    24]: rpc sub xpath ("/ietf-netconf:get", path "/ietf-netconf:get")
+000488-000528 [    40]: rpc subs (1, path "/ietf-netconf:kill-session")
+000528-000560 [    32]: rpc sub xpath ("/ietf-netconf:kill-session", path "/ietf-netconf:kill-session")
+000560-000600 [    40]: rpc subs (1, path "/ietf-netconf:commit")
+000600-000624 [    24]: rpc sub xpath ("/ietf-netconf:commit", path "/ietf-netconf:commit")
+000624-000664 [    40]: rpc subs (1, path "/ietf-netconf:cancel-commit")
+000664-000696 [    32]: rpc sub xpath ("/ietf-netconf:cancel-commit", path "/ietf-netconf:cancel-commit")
+000696-000736 [    40]: rpc subs (1, path "/ietf-netconf:discard-changes")
+000736-000768 [    32]: rpc sub xpath ("/ietf-netconf:discard-changes", path "/ietf-netconf:discard-changes")
+000768-000808 [    40]: rpc subs (1, path "/ietf-netconf:validate")
+000808-000832 [    24]: rpc sub xpath ("/ietf-netconf:validate", path "/ietf-netconf:validate")
+000832-000872 [    40]: rpc subs (1, path "/ietf-netconf-monitoring:get-schema")
+000872-000912 [    40]: rpc sub xpath ("/ietf-netconf-monitoring:get-schema", path "/ietf-netconf-monitoring:get-schema")
+000912-000952 [    40]: rpc subs (1, path "/notifications:create-subscription")
+000952-000992 [    40]: rpc sub xpath ("/notifications:create-subscription", path "/notifications:create-subscription")
+000992-001032 [    40]: rpc subs (1, path "/ietf-netconf-nmda:get-data")
+001032-001064 [    32]: rpc sub xpath ("/ietf-netconf-nmda:get-data", path "/ietf-netconf-nmda:get-data")
+001064-001104 [    40]: rpc subs (1, path "/ietf-netconf-nmda:edit-data")
+001104-001136 [    32]: rpc sub xpath ("/ietf-netconf-nmda:edit-data", path "/ietf-netconf-nmda:edit-data")
+001136-001176 [    40]: rpc subs (1, path "/ietf-subscribed-notifications:establish-subscription")
+001176-001232 [    56]: rpc sub xpath ("/ietf-subscribed-notifications:establish-subscription", path "/ietf-subscribed-notifications:establish-subscription")
+001232-001272 [    40]: rpc subs (1, path "/ietf-subscribed-notifications:modify-subscription")
+001272-001328 [    56]: rpc sub xpath ("/ietf-subscribed-notifications:modify-subscription", path "/ietf-subscribed-notifications:modify-subscription")
+001328-001368 [    40]: rpc subs (1, path "/ietf-subscribed-notifications:delete-subscription")
+001368-001424 [    56]: rpc sub xpath ("/ietf-subscribed-notifications:delete-subscription", path "/ietf-subscribed-notifications:delete-subscription")
+001424-001464 [    40]: rpc subs (1, path "/ietf-subscribed-notifications:kill-subscription")
+001464-001520 [    56]: rpc sub xpath ("/ietf-subscribed-notifications:kill-subscription", path "/ietf-subscribed-notifications:kill-subscription")
+001520-001560 [    40]: rpc subs (1, path "/ietf-yang-push:resync-subscription")
+001560-001600 [    40]: rpc sub xpath ("/ietf-yang-push:resync-subscription", path "/ietf-yang-push:resync-subscription")
+001600-001632 [    32]: oper get subs (1, mod "ietf-netconf-monitoring")
+001632-001672 [    40]: oper get sub xpath ("/ietf-netconf-monitoring:netconf-state", mod "ietf-netconf-monitoring")
+001672-001704 [    32]: oper get xpath subs (1, xpath "/ietf-netconf-monitoring:netconf-state")
+001704-001736 [    32]: oper get subs (1, mod "nc-notifications")
+001736-001768 [    32]: oper get sub xpath ("/nc-notifications:netconf", mod "nc-notifications")
+001768-001800 [    32]: oper get xpath subs (1, xpath "/nc-notifications:netconf")
+001800-001840 [    40]: running change sub xpath ("/ietf-subscribed-notifications:filters", mod "ietf-subscribed-notifications")
+001840-001880 [    40]: running change sub xpath ("/ietf-subscribed-notifications:filters", mod "ietf-subscribed-notifications")
+001880-001912 [    32]: oper get xpath subs (1, xpath "/ietf-subscribed-notifications:subscriptions")
+001912-001952 [    40]: oper get sub xpath ("/ietf-subscribed-notifications:streams", mod "ietf-subscribed-notifications")
+001952-001984 [    32]: oper get xpath subs (1, xpath "/ietf-subscribed-notifications:streams")
+001984-002048 [    64]: oper get subs (2, mod "ietf-subscribed-notifications")
+002048-002096 [    48]: oper get sub xpath ("/ietf-subscribed-notifications:subscriptions", mod "ietf-subscribed-notifications")
+002096-002128 [    32]: oper get subs (1, mod "ietf-netconf-server")
+002128-002136 [     8]: memory hole (size 8)
+002136-002192 [    56]: running change sub xpath ("/ietf-netconf-server:netconf-server/listen/idle-timeout", mod "ietf-netconf-server")
+002192-002248 [    56]: running change sub xpath ("/ietf-netconf-server:netconf-server/listen/idle-timeout", mod "ietf-netconf-server")
+002248-002272 [    24]: running change sub xpath ("/ietf-netconf-acm:nacm", mod "ietf-netconf-acm")
+002272-002328 [    56]: running change sub xpath ("/ietf-netconf-server:netconf-server/listen/endpoint/ssh", mod "ietf-netconf-server")
+002328-002384 [    56]: running change sub xpath ("/ietf-netconf-server:netconf-server/listen/endpoint/ssh", mod "ietf-netconf-server")
+002384-002416 [    32]: oper get xpath subs (1, xpath "/ietf-netconf-server:netconf-server/listen/endpoint/ssh/ssh-server-parameters/client-authentication/users")
+002416-002448 [    32]: oper get subs (1, mod "sysrepo-monitoring")
+002448-002528 [    80]: running change sub xpath ("/ietf-netconf-server:netconf-server/listen/endpoint/ssh/tcp-server-parameters", mod "ietf-netconf-server")
+002528-002584 [    56]: running change sub xpath ("/ietf-netconf-server:netconf-server/listen/endpoint/tls", mod "ietf-netconf-server")
+002584-002664 [    80]: running change sub xpath ("/ietf-netconf-server:netconf-server/listen/endpoint/tls/tcp-server-parameters", mod "ietf-netconf-server")
+002664-002688 [    24]: running change sub xpath ("/ietf-netconf-acm:nacm", mod "ietf-netconf-acm")
+002688-002824 [   136]: running change sub xpath ("/ietf-netconf-server:netconf-server/listen/endpoint/ssh/ssh-server-parameters/server-identity/host-key/public-key/keystore-reference", mod "ietf-netconf-server")
+002824-002944 [   120]: running change sub xpath ("/ietf-netconf-server:netconf-server/listen/endpoint/tls/tls-server-parameters/server-identity/keystore-reference", mod "ietf-netconf-server")
+002944-003008 [    64]: running change sub xpath ("/ietf-netconf-server:netconf-server/call-home/netconf-client", mod "ietf-netconf-server")
+003008-003024 [    16]: memory hole (size 16)
+003024-003160 [   136]: running change sub xpath ("/ietf-netconf-server:netconf-server/listen/endpoint/ssh/ssh-server-parameters/client-authentication/supported-authentication-methods", mod "ietf-netconf-server")
+003160-003240 [    80]: running change sub xpath ("/ietf-netconf-server:netconf-server/call-home/netconf-client/connection-type", mod "ietf-netconf-server")
+003240-003328 [    88]: running change sub xpath ("/ietf-netconf-server:netconf-server/call-home/netconf-client/connection-type/periodic", mod "ietf-netconf-server")
+003328-003408 [    80]: running change sub xpath ("/ietf-netconf-server:netconf-server/call-home/netconf-client/reconnect-strategy", mod "ietf-netconf-server")
+003408-003496 [    88]: running change sub xpath ("/ietf-netconf-server:netconf-server/call-home/netconf-client/endpoints/endpoint/ssh", mod "ietf-netconf-server")
+003496-003520 [    24]: memory hole (size 24)
+003520-003624 [   104]: running change sub xpath ("/ietf-netconf-server:netconf-server/listen/endpoint/tls/tls-server-parameters/client-authentication", mod "ietf-netconf-server")
+003624-003736 [   112]: running change sub xpath ("/ietf-netconf-server:netconf-server/call-home/netconf-client/endpoints/endpoint/ssh/tcp-client-parameters", mod "ietf-netconf-server")
+003736-003904 [   168]: running change sub xpath ("/ietf-netconf-server:netconf-server/call-home/netconf-client/endpoints/endpoint/ssh/ssh-server-parameters/server-identity/host-key/public-key/keystore-reference", mod "ietf-netconf-server")
+003904-003992 [    88]: running change sub xpath ("/ietf-netconf-server:netconf-server/call-home/netconf-client/endpoints/endpoint/tls", mod "ietf-netconf-server")
+003992-004024 [    32]: oper get xpath subs (1, xpath "/sysrepo-monitoring:sysrepo-state/connection[cid='139']/nacm-stats")
+004024-004136 [   112]: running change sub xpath ("/ietf-netconf-server:netconf-server/listen/endpoint/tls/tls-server-parameters/client-authentication/cert-maps", mod "ietf-netconf-server")
+004136-004248 [   112]: running change sub xpath ("/ietf-netconf-server:netconf-server/call-home/netconf-client/endpoints/endpoint/tls/tcp-client-parameters", mod "ietf-netconf-server")
+004248-004392 [   144]: running change sub xpath ("/ietf-netconf-server:netconf-server/call-home/netconf-client/endpoints/endpoint/tls/tls-server-parameters/server-identity/keystore-reference", mod "ietf-netconf-server")
+004392-004520 [   128]: running change sub xpath ("/ietf-netconf-server:netconf-server/call-home/netconf-client/endpoints/endpoint/tls/tls-server-parameters/client-authentication", mod "ietf-netconf-server")
+004520-004664 [   144]: running change sub xpath ("/ietf-netconf-server:netconf-server/call-home/netconf-client/endpoints/endpoint/tls/tls-server-parameters/client-authentication/cert-maps", mod "ietf-netconf-server")
+004664-004704 [    40]: running change sub xpath ("/ietf-keystore:keystore/asymmetric-keys", mod "ietf-keystore")
+004704-004744 [    40]: running change sub xpath ("/ietf-keystore:keystore/asymmetric-keys", mod "ietf-keystore")
+004744-004792 [    48]: running change sub xpath ("/ietf-truststore:truststore/certificates", mod "ietf-truststore")
+004792-004816 [    24]: memory hole (size 24)
+004816-004984 [   168]: running change sub xpath ("/ietf-netconf-server:netconf-server/call-home/netconf-client/endpoints/endpoint/ssh/ssh-server-parameters/client-authentication/supported-authentication-methods", mod "ietf-netconf-server")
+004984-005024 [    40]: running change sub xpath ("/ietf-netconf-acm:nacm/rule-list/rule", mod "ietf-netconf-acm")
+005024-005064 [    40]: running change sub xpath ("/ietf-netconf-acm:nacm/groups/group", mod "ietf-netconf-acm")
+005064-005104 [    40]: running change sub xpath ("/ietf-netconf-acm:nacm/groups/group", mod "ietf-netconf-acm")
+005104-005184 [    80]: running change sub xpath ("/ietf-netconf-server:netconf-server/listen/endpoint/ssh/tcp-server-parameters", mod "ietf-netconf-server")
+005184-005224 [    40]: running change sub xpath ("/ietf-netconf-acm:nacm/rule-list", mod "ietf-netconf-acm")
+005224-005264 [    40]: running change sub xpath ("/ietf-netconf-acm:nacm/rule-list", mod "ietf-netconf-acm")
+005264-005400 [   136]: running change sub xpath ("/ietf-netconf-server:netconf-server/listen/endpoint/ssh/ssh-server-parameters/server-identity/host-key/public-key/keystore-reference", mod "ietf-netconf-server")
+005400-005536 [   136]: running change sub xpath ("/ietf-netconf-server:netconf-server/listen/endpoint/ssh/ssh-server-parameters/client-authentication/supported-authentication-methods", mod "ietf-netconf-server")
+005536-005648 [   112]: oper get sub xpath ("/ietf-netconf-server:netconf-server/listen/endpoint/ssh/ssh-server-parameters/client-authentication/users", mod "ietf-netconf-server")
+005648-005704 [    56]: running change sub xpath ("/ietf-netconf-server:netconf-server/listen/endpoint/tls", mod "ietf-netconf-server")
+005704-005752 [    48]: running change sub xpath ("/ietf-truststore:truststore/certificates", mod "ietf-truststore")
+005752-005760 [     8]: memory hole (size 8)
+005760-005840 [    80]: running change subs (2, mod "ietf-subscribed-notifications")
+005840-005944 [   104]: running change sub xpath ("/ietf-netconf-server:netconf-server/listen/endpoint/tls/tls-server-parameters/client-authentication", mod "ietf-netconf-server")
+005944-006056 [   112]: running change sub xpath ("/ietf-netconf-server:netconf-server/listen/endpoint/tls/tls-server-parameters/client-authentication/cert-maps", mod "ietf-netconf-server")
+006056-006120 [    64]: running change sub xpath ("/ietf-netconf-server:netconf-server/call-home/netconf-client", mod "ietf-netconf-server")
+006120-006200 [    80]: running change sub xpath ("/ietf-netconf-server:netconf-server/call-home/netconf-client/connection-type", mod "ietf-netconf-server")
+006200-006288 [    88]: running change sub xpath ("/ietf-netconf-server:netconf-server/call-home/netconf-client/connection-type/periodic", mod "ietf-netconf-server")
+006288-006368 [    80]: running change sub xpath ("/ietf-netconf-server:netconf-server/call-home/netconf-client/reconnect-strategy", mod "ietf-netconf-server")
+006368-006456 [    88]: running change sub xpath ("/ietf-netconf-server:netconf-server/call-home/netconf-client/endpoints/endpoint/ssh", mod "ietf-netconf-server")
+006456-006568 [   112]: running change sub xpath ("/ietf-netconf-server:netconf-server/call-home/netconf-client/endpoints/endpoint/ssh/tcp-client-parameters", mod "ietf-netconf-server")
+006568-006736 [   168]: running change sub xpath ("/ietf-netconf-server:netconf-server/call-home/netconf-client/endpoints/endpoint/ssh/ssh-server-parameters/server-identity/host-key/public-key/keystore-reference", mod "ietf-netconf-server")
+006736-006904 [   168]: running change sub xpath ("/ietf-netconf-server:netconf-server/call-home/netconf-client/endpoints/endpoint/ssh/ssh-server-parameters/client-authentication/supported-authentication-methods", mod "ietf-netconf-server")
+006904-006992 [    88]: running change sub xpath ("/ietf-netconf-server:netconf-server/call-home/netconf-client/endpoints/endpoint/tls", mod "ietf-netconf-server")
+006992-007032 [    40]: running change sub xpath ("/ietf-netconf-acm:nacm/rule-list/rule", mod "ietf-netconf-acm")
+007032-007040 [     8]: memory hole (size 8)
+007040-007120 [    80]: running change sub xpath ("/ietf-netconf-server:netconf-server/listen/endpoint/tls/tcp-server-parameters", mod "ietf-netconf-server")
+007120-007240 [   120]: running change sub xpath ("/ietf-netconf-server:netconf-server/listen/endpoint/tls/tls-server-parameters/server-identity/keystore-reference", mod "ietf-netconf-server")
+007240-007352 [   112]: running change sub xpath ("/ietf-netconf-server:netconf-server/call-home/netconf-client/endpoints/endpoint/tls/tcp-client-parameters", mod "ietf-netconf-server")
+007352-007496 [   144]: running change sub xpath ("/ietf-netconf-server:netconf-server/call-home/netconf-client/endpoints/endpoint/tls/tls-server-parameters/server-identity/keystore-reference", mod "ietf-netconf-server")
+007496-007624 [   128]: running change sub xpath ("/ietf-netconf-server:netconf-server/call-home/netconf-client/endpoints/endpoint/tls/tls-server-parameters/client-authentication", mod "ietf-netconf-server")
+007624-007768 [   144]: running change sub xpath ("/ietf-netconf-server:netconf-server/call-home/netconf-client/endpoints/endpoint/tls/tls-server-parameters/client-authentication/cert-maps", mod "ietf-netconf-server")
+007768-007776 [     8]: memory hole (size 8)
+007776-007856 [    80]: running change subs (2, mod "ietf-keystore")
+007856-007936 [    80]: running change subs (2, mod "ietf-truststore")
+007936-008008 [    72]: oper get sub xpath ("/sysrepo-monitoring:sysrepo-state/connection[cid='139']/nacm-stats", mod "sysrepo-monitoring")
+008008-008040 [    32]: oper get xpath subs (1, xpath "/ietf-netconf-acm:nacm/denied-data-writes")
+008040-008088 [    48]: oper get sub xpath ("/ietf-netconf-acm:nacm/denied-operations", mod "ietf-netconf-acm")
+008088-008120 [    32]: oper get xpath subs (1, xpath "/ietf-netconf-acm:nacm/denied-operations")
+008120-008152 [    32]: oper get xpath subs (1, xpath "/ietf-netconf-acm:nacm/denied-notifications")
+008152-008216 [    64]: memory hole (size 64)
+008216-008536 [   320]: running change subs (8, mod "ietf-netconf-acm")
+008536-008584 [    48]: oper get sub xpath ("/ietf-netconf-acm:nacm/denied-data-writes", mod "ietf-netconf-acm")
+008584-008680 [    96]: oper get subs (3, mod "ietf-netconf-acm")
+008680-008776 [    96]: running change sub xpath ("/_3gpp-common-managed-element:ManagedElement[id='ManagedElement=gNB-Eurecom-5GNRBox-00001']", mod "_3gpp-common-managed-element")
+008776-008832 [    56]: memory hole (size 56)
+008832-010672 [  1840]: running change subs (46, mod "ietf-netconf-server")
+010672-010720 [    48]: oper get sub xpath ("/ietf-netconf-acm:nacm/denied-notifications", mod "ietf-netconf-acm")
+010720-010800 [    80]: memory hole (size 80)
+010800-010896 [    96]: running change sub xpath ("/_3gpp-common-managed-element:ManagedElement[id='ManagedElement=gNB-Eurecom-5GNRBox-00001']", mod "_3gpp-common-managed-element")
+010896-011016 [   120]: running change subs (3, mod "_3gpp-common-managed-element")
+011016-011112 [    96]: running change sub xpath ("/_3gpp-common-managed-element:ManagedElement[id='ManagedElement=gNB-Eurecom-5GNRBox-00001']", mod "_3gpp-common-managed-element")
+
+[1m[2024-04-16T10:52:58.225/log][netconf/netconf_data.c:1135][0m [oper] populating /_3gpp-common-managed-element:ManagedElement[id='ManagedElement=gNB-Eurecom-5GNRBox-00001']/_3gpp-common-managed-element:AlarmList[id='ManagedElement=gNB-Eurecom-5GNRBox-00001,AlarmList=1']/attributes/alarmRecords[alarmId='ManagedElement=gNB-Eurecom-5GNRBox-00001-internalConnectionLoss']/notificationId with 0.. 
+[1m[2024-04-16T10:52:58.225/log][netconf/netconf_data.c:1135][0m [oper] populating /_3gpp-common-managed-element:ManagedElement[id='ManagedElement=gNB-Eurecom-5GNRBox-00001']/_3gpp-common-managed-element:AlarmList[id='ManagedElement=gNB-Eurecom-5GNRBox-00001,AlarmList=1']/attributes/alarmRecords[alarmId='ManagedElement=gNB-Eurecom-5GNRBox-00001-internalConnectionLoss']/alarmType with COMMUNICATIONS_ALARM.. 
+[1m[2024-04-16T10:52:58.226/log][netconf/netconf_data.c:1135][0m [oper] populating /_3gpp-common-managed-element:ManagedElement[id='ManagedElement=gNB-Eurecom-5GNRBox-00001']/_3gpp-common-managed-element:AlarmList[id='ManagedElement=gNB-Eurecom-5GNRBox-00001,AlarmList=1']/attributes/alarmRecords[alarmId='ManagedElement=gNB-Eurecom-5GNRBox-00001-internalConnectionLoss']/probableCause with unset.. 
+[1m[2024-04-16T10:52:58.226/log][netconf/netconf_data.c:1135][0m [oper] populating /_3gpp-common-managed-element:ManagedElement[id='ManagedElement=gNB-Eurecom-5GNRBox-00001']/_3gpp-common-managed-element:AlarmList[id='ManagedElement=gNB-Eurecom-5GNRBox-00001,AlarmList=1']/attributes/alarmRecords[alarmId='ManagedElement=gNB-Eurecom-5GNRBox-00001,GNBDUFunction=0,NRCellDU=0-loadDownlinkExceededWarning'] with (null).. 
+[1m[2024-04-16T10:52:58.226/log][netconf/netconf_data.c:1135][0m [oper] populating /_3gpp-common-managed-element:ManagedElement[id='ManagedElement=gNB-Eurecom-5GNRBox-00001']/_3gpp-common-managed-element:AlarmList[id='ManagedElement=gNB-Eurecom-5GNRBox-00001,AlarmList=1']/attributes/alarmRecords[alarmId='ManagedElement=gNB-Eurecom-5GNRBox-00001,GNBDUFunction=0,NRCellDU=0-loadDownlinkExceededWarning']/objectInstance with ManagedElement=gNB-Eurecom-5GNRBox-00001,GNBDUFunction=0,NRCellDU=0.. 
+[1m[2024-04-16T10:52:58.226/log][netconf/netconf_data.c:1135][0m [oper] populating /_3gpp-common-managed-element:ManagedElement[id='ManagedElement=gNB-Eurecom-5GNRBox-00001']/_3gpp-common-managed-element:AlarmList[id='ManagedElement=gNB-Eurecom-5GNRBox-00001,AlarmList=1']/attributes/alarmRecords[alarmId='ManagedElement=gNB-Eurecom-5GNRBox-00001,GNBDUFunction=0,NRCellDU=0-loadDownlinkExceededWarning']/notificationId with 0.. 
+[1m[2024-04-16T10:52:58.226/log][netconf/netconf_data.c:1135][0m [oper] populating /_3gpp-common-managed-element:ManagedElement[id='ManagedElement=gNB-Eurecom-5GNRBox-00001']/_3gpp-common-managed-element:AlarmList[id='ManagedElement=gNB-Eurecom-5GNRBox-00001,AlarmList=1']/attributes/alarmRecords[alarmId='ManagedElement=gNB-Eurecom-5GNRBox-00001,GNBDUFunction=0,NRCellDU=0-loadDownlinkExceededWarning']/alarmType with EQUIPMENT_ALARM.. 
+[1m[2024-04-16T10:52:58.226/log][netconf/netconf_data.c:1135][0m [oper] populating /_3gpp-common-managed-element:ManagedElement[id='ManagedElement=gNB-Eurecom-5GNRBox-00001']/_3gpp-common-managed-element:AlarmList[id='ManagedElement=gNB-Eurecom-5GNRBox-00001,AlarmList=1']/attributes/alarmRecords[alarmId='ManagedElement=gNB-Eurecom-5GNRBox-00001,GNBDUFunction=0,NRCellDU=0-loadDownlinkExceededWarning']/probableCause with unset.. 
+[1m[2024-04-16T10:52:58.246/log][main.c              : 195][0m Calling alarms_loop
+[1m[2024-04-16T10:52:58.246/log][main.c              : 197][0m Calling pm_data_loop
+[1m[2024-04-16T10:52:58.246/log][pm_data/pm_data.c   : 137][0m ###Entered pm_data_loop
+[1m[2024-04-16T10:52:58.246/log][pm_data/pm_data.c   : 150][0m Calling if pm_data_loop pm_data_accumulator_len 1 5710882 5710882
+[1m[2024-04-16T10:52:58.246/log][main.c              : 199][0m Calling ves_loop
+[1m[2024-04-16T10:52:58.246/log][ves/ves.c           : 286][0m *********ves_execute****{
+    "event": {
+        "commonEventHeader": {
+            "domain": "@domain@",
+            "eve[1;31m[2024-04-16T10:52:58.447/err][ves/ves_internal.c  : 317][0m curl_easy_perform() failed
+[1;31m[2024-04-16T10:52:58.447/err][ves/ves_internal.c  : 129][0m ves_http_request() failed
+[1;31m[2024-04-16T10:52:58.447/err][ves/ves.c           : 289][0m ves_execute() failed
+[1;31m[2024-04-16T10:52:58.447/err][ves/ves.c           : 181][0m ves_pnf_registration_execute() failed
+ntId": "@node-id@_pnfRegistration",
+            "eventName": "@domain@_@eventType@",
+            "eventType": "@eventType@",
+            "sequence": @seqId@,
+            "priority": "@priority@",
+            "reportingEntityId": "",
+            "reportingEntityName": "@node-id@",
+            "sourceId": "@managed-element-id@",
+            "sourceName": "@node-id@",
+            "startEpochMicrosec": @timestampMicrosec@,
+            "lastEpochMicrosec": @timestampMicrosec@,
+            "nfNamingCode": "001",
+            "nfVendorName": "@vendor@",
+            "timeZoneOffset": "+05:30",
+            "version": "4.1",
+            "vesEventListenerVersion": "7.2.1"
+        },
+        "pnfRegistrationFields": {
+            "pnfRegistrationFieldsVersion": "2.1",
+            "lastServiceDate": "2021-03-26",
+            "macAddress": "00:00:00:00:00:00",
+            "manufactureDate": "2021-01-16",
+            "modelNumber": "nr-softmodem",
+            "oamV4IpAddress": "127.0.0.1",
+            "serialNumber": "@vendor@-gNB-127.0.0.1-nr-softmodem",
+            "softwareVersion": "2.3.5",
+            "unitFamily": "@vendor@-gNB",
+            "unitType": "gNB",
+            "vendorName": "@vendor@",
+            "additionalFields": {
+                "oamPort": "1830",
+                "protocol": "SSH",
+                "username": "user",
+                "password": "password",
+                "reconnectOnChangedSchema": "false",
+                "sleep-factor": "1.5",
+                "tcpOnly": "false",
+                "connectionTimeout": "20000",
+                "maxConnectionAttempts": "100",
+                "betweenAttemptsTimeout": "2000",
+                "keepaliveDelay": "120"
+            }
+        }
+    }
+}
+ pnfRegistration OAI_pnfRegistration Low
+[1m[2024-04-16T10:52:58.247/log][ves/ves_internal.c  : 313][0m POST-ing cURL to url="https://10.33.42.215:9999/eventListener/v7" with body="{
+    "event": {
+        "commonEventHeader": {
+            "domain": "pnfRegistration",
+            "eventId": "gNB-Eurecom-5GNRBox-00001_pnfRegistration",
+            "eventName": "pnfRegistration_OAI_pnfRegistration",
+            "eventType": "OAI_pnfRegistration",
+            "sequence": 0,
+            "priority": "Low",
+            "reportingEntityId": "",
+            "reportingEntityName": "gNB-Eurecom-5GNRBox-00001",
+            "sourceId": "12345678",
+            "sourceName": "gNB-Eurecom-5GNRBox-00001",
+            "startEpochMicrosec": 1713264778246755,
+            "lastEpochMicrosec": 1713264778246755,
+            "nfNamingCode": "001",
+            "nfVendorName": "OpenAirInterface",
+            "timeZoneOffset": "+05:30",
+            "version": "4.1",
+            "vesEventListenerVersion": "7.2.1"
+        },
+        "pnfRegistrationFields": {
+            "pnfRegistrationFieldsVersion": "2.1",
+            "lastServiceDate": "2021-03-26",
+            "macAddress": "00:00:00:00:00:00",
+            "manufactureDate": "2021-01-16",
+            "modelNumber": "nr-softmodem",
+            "oamV4IpAddress": "127.0.0.1",
+            "serialNumber": "OpenAirInterface-gNB-127.0.0.1-nr-softmodem",
+            "softwareVersion": "2.3.5",
+            "unitFamily": "OpenAirInterface-gNB",
+            "unitType": "gNB",
+            "vendorName": "OpenAirInterface",
+            "additionalFields": {
+                "oamPort": "1830",
+                "protocol": "SSH",
+                "username": "user",
+                "password": "password",
+                "reconnectOnChangedSchema": "false",
+                "sleep-factor": "1.5",
+                "tcpOnly": "false",
+                "connectionTimeout": "20000",
+                "maxConnectionAttempts": "100",
+                "betweenAttemptsTimeout": "2000",
+                "keepaliveDelay": "120"
+            }
+        }
+    }
+}
+"... 
+[1m[2024-04-16T10:52:59.447/log][telnet/telnet.c     : 498][0m telnet_write('o1 stats')
+*****Response: {
+  "o1-config": {
+    "BWP": {
+      "dl": [{
+        "bwp3gpp:isInitialBwp": true,
+        "bwp3gpp:numberOfRBs": 106,
+        "bwp3gpp:startRB": 0,
+        "bwp3gpp:subCarrierSpacing": 30
+      }],
+      "ul": [{
+        "bwp3gpp:isInitialBwp": true,
+        "bwp3gpp:numberOfRBs": 106,
+        "bwp3gpp:startRB": 0,
+        "bwp3gpp:subCarrierSpacing": 30
+      }]
+    },
+    "NRCELLDU": {
+      "nrcelldu3gpp:ssbFrequency": 641280,
+      "nrcelldu3gpp:arfcnDL": 640008,
+      "nrcelldu3gpp:bSChannelBwDL": 40,
+      "nrcelldu3gpp:arfcnUL": 640008,
+      "nrcelldu3gpp:bSChannelBwUL": 40,
+      "nrcelldu3gpp:nRPCI": 0,
+      "nrcelldu3gpp:nRTAC": 1,
+      "nrcelldu3gpp:mcc": "001",
+      "nrcelldu3gpp:mnc": "01",
+      "nrcelldu3gpp:sd": 16777215,
+      "nrcelldu3gpp:sst": 1
+    },
+    "device": {
+      "gnbId": 12345678,
+      "gnbName": "gNB-OAI",
+      "vendor": "OpenAirInterface"
+    }
+  },
+  "O1-Operational": {
+    "frame-type": "tdd",
+    "band-number": 78,
+    "num-ues": 0,
+    "ues": [    ],
+    "load": 0,
+    "ues-thp": [
+    ]
+  }
+}
+OK
+softmodem_gnb> [1m[2024-04-16T10:52:59.448/log][main.c              : 195][0m Calling alarms_loop
+[1m[2024-04-16T10:52:59.448/log][main.c              : 197][0m Calling pm_data_loop
+[1m[2024-04-16T10:52:59.448/log][pm_data/pm_data.c   : 137][0m ###Entered pm_data_loop
+[1m[2024-04-16T10:52:59.448/log][pm_data/pm_data.c   : 150][0m Calling if pm_data_loop pm_data_accumulator_len 2 5710882 5710882
+[1m[2024-04-16T10:52:59.448/log][main.c              : 199][0m Calling ves_loop
+[1m[2024-04-16T10:53:00.449/log][telnet/telnet.c     : 498][0m telnet_write('o1 stats')
+*****Response: {
+  "o1-config": {
+    "BWP": {
+      "dl": [{
+        "bwp3gpp:isInitialBwp": true,
+        "bwp3gpp:numberOfRBs": 106,
+        "bwp3gpp:startRB": 0,
+        "bwp3gpp:subCarrierSpacing": 30
+      }],
+      "ul": [{
+        "bwp3gpp:isInitialBwp": true,
+        "bwp3gpp:numberOfRBs": 106,
+        "bwp3gpp:startRB": 0,
+        "bwp3gpp:subCarrierSpacing": 30
+      }]
+    },
+    "NRCELLDU": {
+      "nrcelldu3gpp:ssbFrequency": 641280,
+      "nrcelldu3gpp:arfcnDL": 640008,
+      "nrcelldu3gpp:bSChannelBwDL": 40,
+      "nrcelldu3gpp:arfcnUL": 640008,
+      "nrcelldu3gpp:bSChannelBwUL": 40,
+      "nrcelldu3gpp:nRPCI": 0,
+      "nrcelldu3gpp:nRTAC": 1,
+      "nrcelldu3gpp:mcc": "001",
+      "nrcelldu3gpp:mnc": "01",
+      "nrcelldu3gpp:sd": 16777215,
+      "nrcelldu3gpp:sst": 1
+    },
+    "device": {
+      "gnbId": 12345678,
+      "gnbName": "gNB-OAI",
+      "vendor": "OpenAirInterface"
+    }
+  },
+  "O1-Operational": {
+    "frame-type": "tdd",
+    "band-number": 78,
+    "num-ues": 0,
+    "ues": [    ],
+    "load": 0,
+    "ues-thp": [
+    ]
+  }
+}
+OK
+softmodem_gnb> [1m[2024-04-16T10:53:00.450/log][main.c              : 195][0m Calling alarms_loop
+[1m[2024-04-16T10:53:00.450/log][main.c              : 197][0m Calling pm_data_loop
+[1m[2024-04-16T10:53:00.450/log][pm_data/pm_data.c   : 137][0m ###Entered pm_data_loop
+[1m[2024-04-16T10:53:00.450/log][pm_data/pm_data.c   : 150][0m Calling if pm_data_loop pm_data_accumulator_len 3 5710882 5710882
+[1m[2024-04-16T10:53:00.450/log][main.c              : 199][0m Calling ves_loop
+[1m[2024-04-16T10:53:01.450/log][telnet/telnet.c     : 498][0m telnet_write('o1 stats')
+*****Response: {
+  "o1-config": {
+    "BWP": {
+      "dl": [{
+        "bwp3gpp:isInitialBwp": true,
+        "bwp3gpp:numberOfRBs": 106,
+        "bwp3gpp:startRB": 0,
+        "bwp3gpp:subCarrierSpacing": 30
+      }],
+      "ul": [{
+        "bwp3gpp:isInitialBwp": true,
+        "bwp3gpp:numberOfRBs": 106,
+        "bwp3gpp:startRB": 0,
+        "bwp3gpp:subCarrierSpacing": 30
+      }]
+    },
+    "NRCELLDU": {
+      "nrcelldu3gpp:ssbFrequency": 641280,
+      "nrcelldu3gpp:arfcnDL": 640008,
+      "nrcelldu3gpp:bSChannelBwDL": 40,
+      "nrcelldu3gpp:arfcnUL": 640008,
+      "nrcelldu3gpp:bSChannelBwUL": 40,
+      "nrcelldu3gpp:nRPCI": 0,
+      "nrcelldu3gpp:nRTAC": 1,
+      "nrcelldu3gpp:mcc": "001",
+      "nrcelldu3gpp:mnc": "01",
+      "nrcelldu3gpp:sd": 16777215,
+      "nrcelldu3gpp:sst": 1
+    },
+    "device": {
+      "gnbId": 12345678,
+      "gnbName": "gNB-OAI",
+      "vendor": "OpenAirInterface"
+    }
+  },
+  "O1-Operational": {
+    "frame-type": "tdd",
+    "band-number": 78,
+    "num-ues": 0,
+    "ues": [    ],
+    "load": 0,
+    "ues-thp": [
+    ]
+  }
+}
+OK
+softmodem_gnb> [1m[2024-04-16T10:53:01.451/log][main.c              : 195][0m Calling alarms_loop
+[1m[2024-04-16T10:53:01.451/log][main.c              : 197][0m Calling pm_data_loop
+[1m[2024-04-16T10:53:01.451/log][pm_data/pm_data.c   : 137][0m ###Entered pm_data_loop
+[1m[2024-04-16T10:53:01.451/log][pm_data/pm_data.c   : 150][0m Calling if pm_data_loop pm_data_accumulator_len 4 5710882 5710882
+[1m[2024-04-16T10:53:01.451/log][main.c              : 199][0m Calling ves_loop
+[1m[2024-04-16T10:53:02.452/log][telnet/telnet.c     : 498][0m telnet_write('o1 stats')
+*****Response: {
+  "o1-config": {
+    "BWP": {
+      "dl": [{
+        "bwp3gpp:isInitialBwp": true,
+        "bwp3gpp:numberOfRBs": 106,
+        "bwp3gpp:startRB": 0,
+        "bwp3gpp:subCarrierSpacing": 30
+      }],
+      "ul": [{
+        "bwp3gpp:isInitialBwp": true,
+        "bwp3gpp:numberOfRBs": 106,
+        "bwp3gpp:startRB": 0,
+        "bwp3gpp:subCarrierSpacing": 30
+      }]
+    },
+    "NRCELLDU": {
+      "nrcelldu3gpp:ssbFrequency": 641280,
+      "nrcelldu3gpp:arfcnDL": 640008,
+      "nrcelldu3gpp:bSChannelBwDL": 40,
+      "nrcelldu3gpp:arfcnUL": 640008,
+      "nrcelldu3gpp:bSChannelBwUL": 40,
+      "nrcelldu3gpp:nRPCI": 0,
+      "nrcelldu3gpp:nRTAC": 1,
+      "nrcelldu3gpp:mcc": "001",
+      "nrcelldu3gpp:mnc": "01",
+      "nrcelldu3gpp:sd": 16777215,
+      "nrcelldu3gpp:sst": 1
+    },
+    "device": {
+      "gnbId": 12345678,
+      "gnbName": "gNB-OAI",
+      "vendor": "OpenAirInterface"
+    }
+  },
+  "O1-Operational": {
+    "frame-type": "tdd",
+    "band-number": 78,
+    "num-ues": 0,
+    "ues": [    ],
+    "load": 0,
+    "ues-thp": [
+    ]
+  }
+}
+OK
+softmodem_gnb> [1m[2024-04-16T10:53:02.453/log][main.c              : 195][0m Calling alarms_loop
+[1m[2024-04-16T10:53:02.453/log][main.c              : 197][0m Calling pm_data_loop
+[1m[2024-04-16T10:53:02.453/log][pm_data/pm_data.c   : 137][0m ###Entered pm_data_loop
+[1m[2024-04-16T10:53:02.453/log][pm_data/pm_data.c   : 150][0m Calling if pm_data_loop pm_data_accumulator_len 5 5710882 5710882
+[1m[2024-04-16T10:53:02.453/log][main.c              : 199][0m Calling ves_loop
+[1m[2024-04-16T10:53:03.453/log][telnet/telnet.c     : 498][0m telnet_write('o1 stats')
+*****Response: {
+  "o1-config": {
+    "BWP": {
+      "dl": [{
+        "bwp3gpp:isInitialBwp": true,
+        "bwp3gpp:numberOfRBs": 106,
+        "bwp3gpp:startRB": 0,
+        "bwp3gpp:subCarrierSpacing": 30
+      }],
+      "ul": [{
+        "bwp3gpp:isInitialBwp": true,
+        "bwp3gpp:numberOfRBs": 106,
+        "bwp3gpp:startRB": 0,
+        "bwp3gpp:subCarrierSpacing": 30
+      }]
+    },
+    "NRCELLDU": {
+      "nrcelldu3gpp:ssbFrequency": 641280,
+      "nrcelldu3gpp:arfcnDL": 640008,
+      "nrcelldu3gpp:bSChannelBwDL": 40,
+      "nrcelldu3gpp:arfcnUL": 640008,
+      "nrcelldu3gpp:bSChannelBwUL": 40,
+      "nrcelldu3gpp:nRPCI": 0,
+      "nrcelldu3gpp:nRTAC": 1,
+      "nrcelldu3gpp:mcc": "001",
+      "nrcelldu3gpp:mnc": "01",
+      "nrcelldu3gpp:sd": 16777215,
+      "nrcelldu3gpp:sst": 1
+    },
+    "device": {
+      "gnbId": 12345678,
+      "gnbName": "gNB-OAI",
+      "vendor": "OpenAirInterface"
+    }
+  },
+  "O1-Operational": {
+    "frame-type": "tdd",
+    "band-number": 78,
+    "num-ues": 0,
+    "ues": [    ],
+    "load": 0,
+    "ues-thp": [
+    ]
+  }
+}
+OK
+softmodem_gnb> [1m[2024-04-16T10:53:03.454/log][main.c              : 195][0m Calling alarms_loop
+[1m[2024-04-16T10:53:03.454/log][main.c              : 197][0m Calling pm_data_loop
+[1m[2024-04-16T10:53:03.454/log][pm_data/pm_data.c   : 137][0m ###Entered pm_data_loop
+[1m[2024-04-16T10:53:03.454/log][pm_data/pm_data.c   : 150][0m Calling if pm_data_loop pm_data_accumulator_len 6 5710882 5710882
+[1m[2024-04-16T10:53:03.454/log][main.c              : 199][0m Calling ves_loop

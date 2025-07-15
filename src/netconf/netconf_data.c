@@ -44,6 +44,8 @@ static const char *MANAGED_ELEMENT_XPATH_OPER = 0;
 static const char *GNBDU_FUNCTION_XPATH = 0;
 static const char *BWP_DOWNLINK_XPATH = 0;
 static const char *BWP_UPLINK_XPATH = 0;
+static const char *ENERGY_SAVING_XPATH = 0;
+static const char *ANTENNA_PORTS = 0;
 static const char *NRCELLDU_XPATH = 0;
 static const char *NPNIDENTITYLIST_XPATH = 0;
 static const char *ALARMLIST_XPATH = 0;
@@ -57,6 +59,7 @@ static sr_subscription_ctx_t *netconf_data_subscription = 0;
 static int netconf_data_register_callbacks();
 static int netconf_data_unregister_callbacks();
 static int netconf_data_edit_callback(sr_session_ctx_t *session, uint32_t sub_id, const char *module_name, const char *xpath_running, sr_event_t event, uint32_t request_id, void *private_data);
+static int netconf_data_edit_callback_ietf_es(sr_session_ctx_t *session, uint32_t sub_id, const char *module_name, const char *xpath_running, sr_event_t event, uint32_t request_id, void *private_data);
 
 int netconf_data_init(const config_t *config) {
     if(config == 0) {
@@ -98,7 +101,7 @@ int netconf_data_alarms_init(const alarm_t **alarms) {
     if(ALARM_XPATH == 0) {
         log_error("malloc failed");
         goto failed;
-    }
+   }
 
     for(int i = 0; i < alarms_no; i++) {
         ALARM_XPATH[i] = 0;
@@ -2298,12 +2301,19 @@ static int netconf_data_register_callbacks() {
         goto failed;
     }
 
+    rc = sr_module_change_subscribe(netconf_session_running, "ietf-energy-saving-mgt", ENERGY_SAVING_XPATH, netconf_data_edit_callback_ietf_es, NULL, 0, 0, &netconf_data_subscription);
+    if (rc != SR_ERR_OK) {
+        log_error("sr_module_change_subscribe() failed");
+        goto failed;
+    }
+
     return 0;
 failed:
     sr_unsubscribe(netconf_data_subscription);
 
     return 1;
 }
+
 
 static int netconf_data_unregister_callbacks() {
     if(netconf_data_subscription) {
@@ -2313,6 +2323,137 @@ static int netconf_data_unregister_callbacks() {
 
     return 0;
 }
+
+static int netconf_data_edit_callback_ietf_es(sr_session_ctx_t *session, uint32_t sub_id, const char *module_name, const char *xpath_running, sr_event_t event, uint32_t request_id, void *private_data) {
+    (void)sub_id;
+    (void)request_id;
+    (void)private_data;
+    
+    int rc = SR_ERR_OK;
+
+    sr_change_iter_t *it = 0;
+    sr_change_oper_t oper;
+    sr_val_t *old_value = 0;
+    sr_val_t *new_value = 0;
+
+    char *change_path = 0;
+
+    if(xpath_running) {
+        asprintf(&change_path, "%s//.", xpath_running);
+    }
+    else {
+        asprintf(&change_path, "/%s:*//.", module_name);
+    }
+
+        
+    if(event == SR_EV_CHANGE) {
+        rc = sr_get_changes_iter(session, change_path, &it);
+        if (rc != SR_ERR_OK) {
+            log_error("sr_get_changes_iter() failed");
+            goto failed;
+        }
+
+        int invalidEdit = 0;
+        char *invalidEditReason = 0;
+        char power_state[16];
+
+        while ((rc = sr_get_change_next(session, it, &oper, &old_value, &new_value)) == SR_ERR_OK) {
+            if(oper != SR_OP_MODIFIED) {
+                printf("***oper %d SR_OP_MODIFIED %d old %d new %d \n ", oper, SR_OP_MODIFIED, old_value, new_value);
+                invalidEdit = 1;
+                invalidEditReason = strdup("invalid operation (only MODIFY enabled)");
+                goto checkInvalidEdit;
+		printf("****checkInvalidEdit****\n");
+            }
+
+            if(strstr(new_value->xpath, "power-state")) {
+                char *tmp;
+                printf ("Power State : %s\n", new_value->xpath);
+                   strcpy (power_state, (strchr (new_value->data.string_val, ':')+1));
+            } 
+            else {
+                invalidEdit = 1;
+                invalidEditReason = strdup(new_value->xpath);
+                printf ("Invalid %s\n", new_value->xpath);
+                
+            }
+		
+            sr_free_val(old_value);
+            old_value = 0;
+            sr_free_val(new_value);
+            new_value = 0;
+
+checkInvalidEdit:
+            if(invalidEdit) {
+                break;
+            }
+        }
+
+        if(invalidEdit) {
+            log_error("invalid edit data detected: %s", invalidEditReason);
+            free(invalidEditReason);
+            printf("***check failed_validation**\n");
+            goto failed_validation;
+        }
+
+                // send command
+                printf("******telnet_change_power_state*****\n");
+                int rc = telnet_change_power_state(power_state);
+                if(rc != 0) {
+                    log_error("telnet_change_power_state failed");
+                    goto failed_validation;
+                }
+
+        } 
+
+        sr_free_change_iter(it);
+        it = 0;
+    
+    free(change_path);
+    if(it) {
+        sr_free_change_iter(it);
+    }
+    if(old_value) {
+        sr_free_val(old_value);
+    }
+    if(new_value) {
+        sr_free_val(new_value);
+    }
+
+    return SR_ERR_OK;
+
+failed:
+    free(change_path);
+    if(it) {
+        sr_free_change_iter(it);
+    }
+    if(old_value) {
+        sr_free_val(old_value);
+    }
+    if(new_value) {
+        sr_free_val(new_value);
+    }
+
+    
+    return SR_ERR_INTERNAL;
+
+failed_validation:
+    free(change_path);
+    if(it) {
+        sr_free_change_iter(it);
+    }
+    if(old_value) {
+        sr_free_val(old_value);
+    }
+    if(new_value) {
+        sr_free_val(new_value);
+    }
+    
+    return SR_ERR_VALIDATION_FAILED;
+} 
+
+
+
 
 static int netconf_data_edit_callback(sr_session_ctx_t *session, uint32_t sub_id, const char *module_name, const char *xpath_running, sr_event_t event, uint32_t request_id, void *private_data) {
     (void)sub_id;
@@ -2347,12 +2488,15 @@ static int netconf_data_edit_callback(sr_session_ctx_t *session, uint32_t sub_id
         char *invalidEditReason = 0;
         int bSChannelBwDL = -1;
         int bSChannelBwUL = -1;
+        //int numberOfRBs = -1;
 
         while ((rc = sr_get_change_next(session, it, &oper, &old_value, &new_value)) == SR_ERR_OK) {
             if(oper != SR_OP_MODIFIED) {
+                printf("***oper %d SR_OP_MODIFIED %d old %d new %d \n ", oper, SR_OP_MODIFIED, old_value, new_value);
                 invalidEdit = 1;
                 invalidEditReason = strdup("invalid operation (only MODIFY enabled)");
                 goto checkInvalidEdit;
+		printf("****checkInvalidEdit****\n");
             }
 
             // here we can develop more complete xpath instead of "bSChannelBwDL" if needed
@@ -2365,8 +2509,10 @@ static int netconf_data_edit_callback(sr_session_ctx_t *session, uint32_t sub_id
             else {
                 invalidEdit = 1;
                 invalidEditReason = strdup(new_value->xpath);
+                printf ("Invalid %s\n", new_value->xpath);
+                
             }
-
+		
             sr_free_val(old_value);
             old_value = 0;
             sr_free_val(new_value);
@@ -2381,17 +2527,20 @@ checkInvalidEdit:
         if(invalidEdit) {
             log_error("invalid edit data detected: %s", invalidEditReason);
             free(invalidEditReason);
+            printf("***check failed_validation**\n");
             goto failed_validation;
         }
 
         if((bSChannelBwDL != -1) || (bSChannelBwUL != -1)) {
             if(bSChannelBwDL != bSChannelBwUL) {
                 log_error("bSChannelBwDL (%d) != bSChannelBwUL (%d)", bSChannelBwDL, bSChannelBwUL);
+                printf("****INVALID_bsChannelBwDLUL****");
                 goto failed_validation;
             }
             else {
                 // send command
                 int rc = telnet_change_bandwidth(bSChannelBwDL);
+                printf("******telnet_change_bandwidth(bSChannelBwDL)*****");
                 if(rc != 0) {
                     log_error("telnet_change_bandwidth failed");
                     goto failed_validation;
@@ -2399,10 +2548,25 @@ checkInvalidEdit:
             }
         }
 
+        /* //   condition for checking numberOfRBs 
+
+        if(numberOfRBs <  0) {
+                log_error("numberOfRBs (%d)", numberOfRBs);
+                goto failed_validation;
+            }
+            else {
+                // send command
+                int rc = telnet_change_rbs(numberOfRBs);
+                if(rc != 0) {
+                    log_error("telnet_change_rbs failed");
+                    goto failed_validation;
+                }
+            } */ 
+        } 
+
         sr_free_change_iter(it);
         it = 0;
-    }
-
+    
     free(change_path);
     if(it) {
         sr_free_change_iter(it);
@@ -2445,4 +2609,6 @@ failed_validation:
     
     return SR_ERR_VALIDATION_FAILED;
 }
+
+
 

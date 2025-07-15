@@ -31,7 +31,7 @@ declare yang_files=(
     "ietf-inet-types.yang"
     "ietf-yang-schema-mount@2019-01-14.yang"
     "ietf-yang-types@2013-07-15.yang"
-
+    
     "_3gpp-common-yang-extensions.yang"
     "_3gpp-common-yang-types.yang"
     "_3gpp-common-top.yang"
@@ -42,7 +42,9 @@ declare yang_files=(
     "_3gpp-common-fm.yang"
     "_3gpp-common-trace.yang"
     "_3gpp-5gc-nrm-configurable5qiset.yang"
+    "_3gpp-5gc-nrm-ecmconnectioninfo.yang"
     "_3gpp-common-subnetwork.yang"
+    
     "_3gpp-common-managed-element.yang"
     "_3gpp-5g-common-yang-types.yang"
     "_3gpp-common-managed-function.yang"
@@ -56,7 +58,10 @@ declare yang_files=(
     "_3gpp-nr-nrm-nrcelldu.yang"
     "_3gpp-nr-nrm-nrsectorcarrier.yang"
     "_3gpp-common-filemanagement.yang"
-    "_3gpp-nr-nrm-ep.yang"
+    "_3gpp-nr-nrm-ep.yang" 
+    "_3gpp-5gc-ecmconnectioninfo.yang"
+    "_3gpp-nr-nrm-nrcellcu.yang"
+    "_3gpp-nr-nrm-desmanagementfunction.yang"
 )
 
 # checkAL ERROR IN 3GPP FILES
@@ -70,3 +75,11 @@ done
 
 sysrepoctl -c _3gpp-common-managed-function -e MeasurementsUnderManagedFunction
 sysrepoctl -c _3gpp-common-managed-element -e FmUnderManagedElement
+sysrepoctl -c _3gpp-common-managed-element -e DESManagementFunction
+sysrepoctl -c _3gpp-common-managed-function -e TraceUnderManagedFunction
+sysrepoctl -c _3gpp-common-trace -e FilesUnderTraceJob
+sysrepoctl -c _3gpp-common-subnetwork -e DESManagementFunction
+sysrepoctl -c _3gpp-nr-nrm-gnbcucpfunction -e DESManagementFunction
+sysrepoctl -c _3gpp-common-subnetwork -e DESManagementFunction
+sysrepoctl -c _3gpp-nr-nrm-nrcellcu -e DESManagementFunction
+

@@ -2,9 +2,9 @@
     "event": {
         "commonEventHeader": {
             "domain": "@domain@",
-            "eventId": "@node-id@_@alarm@",
-            "eventName": "@domain@_@eventType@_Alarms_@alarm@",
-            "eventType": "@eventType@_Alarms",
+            "eventId": "@node-id@_FileReady",
+            "eventName": "@domain@_@vendor@-@model@_@eventType@",
+            "eventType": "@eventType@",
             "sequence": @seqId@,
             "priority": "@priority@",
             "reportingEntityId": "",
@@ -17,23 +17,18 @@
             "nfVendorName": "@vendor@",
             "timeZoneOffset": "+05:30",
             "version": "4.1",
-            "stndDefinedNamespace": "3GPP-FaultSupervision",
+            "stndDefinedNamespace": "3GPP-PerformanceAssurance",
             "vesEventListenerVersion": "7.2.1"
         },
         "stndDefinedFields": {
-            "schemaReference": "https://forge.3gpp.org/rep/sa5/MnS/blob/Rel-18/OpenAPI/TS28532_FaultMnS.yaml#components/schemas/NotifyClearedAlarm",
+            "schemaReference": "https://forge.3gpp.org/rep/sa5/MnS/blob/Rel-18/OpenAPI/TS28532_FileDataReportingMnS.yaml#components/schemas/NotifyFileReady", 
             "data": {
                 "href": "href1",
                 "notificationId": @notification-id@,
-                "notificationType": "notifyClearedAlarm",
+                "notificationType": "notifyFileReady",
                 "eventTime": "@timestampISO3milisec@",
-                "systemDN": "ManagedElement=@node-id@",
-                "alarmId": "@object-instance@-@alarm@",
-                "alarmType": "@alarm-type@",
-                "probableCause": "@alarm@",
-                "perceivedSeverity": "CLEARED",
-                "clearUserId": "@vendor@",
-                "clearSystemId": "@vendor@"
+                "systemDN": "@node-id@",
+                "additionalText": "Have fun!"
             },
             "stndDefinedFieldsVersion": "1.0"
         }
